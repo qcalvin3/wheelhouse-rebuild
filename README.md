@@ -62,3 +62,18 @@ The nine findings come down to five root causes. Fixing these, not each symptom 
 3. **HTML used for looks, not meaning.** Divs, `<b>`, `<br>` and inline styles instead of semantic elements and shared CSS (findings 5, 7, 9).
 4. **Left unfinished.** Placeholder links, buttons that do not submit, and a booking form with no phone field (findings 4, 6).
 5. **No visual system.** Colours, sizes and spacing chosen one at a time (findings 5, 9).
+
+## 4. Visual system
+
+All colours, sizes and spacing come from CSS custom properties at the top of `css/styles.css`. No one-off values.
+
+| Choice | Value | Why, for Wheelhouse |
+|---|---|---|
+| Primary colour | `#1f4e8c` deep blue | Reads as dependable and professional. White text on it is 8.3:1, easy to read outdoors. Replaces the old site's six different card colours with one |
+| Accent | `#b45309` burnt amber | For links and highlights only. 4.7:1 on the background |
+| Text | `#1b2430` on `#f5f7fa` | 14.6:1 contrast, readable in sunlight |
+| Font | System font | No download, so the page stays fast on mobile data. Clean, not trendy |
+| Body size | 16px | Readable without zooming (the old site used 11px to 13px) |
+| Type scale | 1.2 ratio; headline 28px to 40px with `clamp()` | Headings clearly different, but the headline never pushes the Call button off the first phone screen |
+| Spacing | 4 / 8 / 16 / 24 / 32 / 48 | Tight inside groups, loose between sections, so it is clear what belongs together |
+| Tap targets | At least 44px tall | Call and WhatsApp are easy to tap with one thumb |

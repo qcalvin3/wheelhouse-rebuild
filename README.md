@@ -1,7 +1,7 @@
 # Wheelhouse Bike Repair: Page Rebuild
 
 **Live page:** https://qcalvin3.github.io/wheelhouse-rebuild/
-
+**Original site (before):** [commit e0c6f94](https://github.com/qcalvin3/wheelhouse-rebuild/tree/e0c6f94)
 
 **Contents:** 1. Understanding the brief · 2. Sketch and structure · 3. Diagnosis · 4. Visual system · 5. Additional improvement · 6. Audit
 
@@ -42,7 +42,7 @@ Kwame's customers arrive on a phone, in a hurry, comparing two or three shops, a
 
 ## 3. Diagnosis of the original site
 
-**How I tested:** Chrome DevTools device toolbar at 360 × 640 (a typical phone), the keyboard only (Tab and Enter), the DevTools colour picker for contrast, the Network tab on Slow 4G, and reading `index.html` and `styles.css` line by line. Screenshots are in `docs/evidence/`.
+**How I tested:** Chrome DevTools device toolbar at 360 × 640 (a typical phone), the keyboard only (Tab and Enter), the DevTools colour picker for contrast, the Network tab on Slow 4G, and reading `index.html` and `styles.css` line by line. Screenshots are in `docs/evidence/`. Line numbers refer to the original files in [commit e0c6f94](https://github.com/qcalvin3/wheelhouse-rebuild/tree/e0c6f94), before the rebuild.
 
 **Ranking:** findings are ordered by how much they cost Kwame new customers, based on the brief: customers are in a hurry, on their phones, comparing two or three shops, and choosing the one that looks reliable. Findings 1 to 8 are broken: they stop customers reading, tapping, finding or trusting something. Finding 9 is dated: the page works, but looks old and inconsistent, which still weakens trust.
 
@@ -104,17 +104,18 @@ All colours, sizes and spacing come from CSS custom properties at the top of `cs
 
 ## 6. Audit of the rebuilt page
 
-**How I checked:** automated HTML validation (`html-validate`), an automated accessibility check (axe-core) at 360px and 1280px, the W3C Easy Checks by hand (page title, headings, image text, contrast, keyboard focus, 200% zoom, form labels), every colour pair measured for contrast, and a search of the CSS for values that bypass the visual system.
+**How I checked:** the W3C Markup Validation Service and a stricter HTML checker (`html-validate`), Lighthouse on mobile and desktop, an automated accessibility check (axe-core) at 360px and 1280px, the W3C Easy Checks by hand (page title, headings, image text, contrast, keyboard focus, 200% zoom, form labels), every colour pair measured for contrast, and a search of the CSS for values that bypass the visual system.
 
 ### Results
 
 | Area | Check | Result |
 |---|---|---|
-| Semantic HTML | Validation | W3C Markup Validation Service: no errors or warnings (after fixing the phone number spacing below) |
+| Semantic HTML | Validation | W3C Markup Validation Service: no errors or warnings. `html-validate`: no errors after the phone number fix below |
 | Semantic HTML | Landmarks | `header`, `nav`, `main`, `footer`, plus a labelled `section` for each block |
 | Semantic HTML | Heading outline | One `h1`, an `h2` for each section, `h3` for each service. No skipped levels |
 | Semantic HTML | Buttons and links | Links go somewhere (sections, `tel:`, WhatsApp, the one-tap messages, maps, email); the form uses a real submit `button`; the menu and questions use `<details>`. No JavaScript is needed for any of it |
 | Accessibility | Automated check (axe-core) | 0 violations at 360px and 1280px |
+| Overall | Lighthouse (mobile and desktop) | Performance 100, Accessibility 100, Best Practices 100, SEO 100 |
 | Accessibility | Page title | "Wheelhouse Bike Repair \| Adum, Kumasi": says what and where |
 | Accessibility | Image text | The one image has alt text that says it is a placeholder |
 | Accessibility | Contrast | Every text pair passes 4.5:1, lowest 4.9:1 (the tick marks); body text 15.8:1; orange links, prices and buttons 5.3:1 to 5.7:1 |
@@ -125,8 +126,9 @@ All colours, sizes and spacing come from CSS custom properties at the top of `cs
 
 ### What I fixed, in priority order
 
-1. **Phone numbers could split across two lines** on narrow phones (flagged by the validator 7 times). Fixed with non-breaking spaces. A number broken in half is easy to misread at the exact moment someone is about to call, so this was a quick win with high value.
+1. **Phone numbers could split across two lines** on narrow phones (flagged 7 times by `html-validate`, a stricter checker than the W3C validator). Fixed with non-breaking spaces. A number broken in half is easy to misread at the exact moment someone is about to call, so this was a quick win with high value.
 2. **One font size (18px) and one padding value sat outside the visual system.** Added `--font-size-lead` and used the spacing variable, so every size now comes from the system.
+3. **The browser tab had no icon**, which also showed as an error in Lighthouse. Added a simple "W" icon in the brand orange, so Wheelhouse is easy to spot when a customer has two or three shops open in tabs.
 
 ### What I deliberately left, and why
 
@@ -137,6 +139,7 @@ All colours, sizes and spacing come from CSS custom properties at the top of `cs
 | Exact map pin or landmark | The site only knows "Shop 4, Adum Commercial Area", so the link searches that area | Ask Kwame for a nearby landmark or his exact Google Maps location |
 | Menu stays a "Menu" button on desktop | `<details>` works without JavaScript and suits phones, where most customers are. Showing the links in a row on desktop is low value for this brief | Show the links inline on wide screens in a later JavaScript or CSS pass |
 | A live "Open now / Closed" status | It would answer "can I bring it in now?" instantly, but it needs JavaScript, which this course covers in the next module | Add it in the Applied JavaScript module |
+| `js/script.js` is not used | This lab needs no JavaScript. The file is kept as the starter's placeholder for the Applied JavaScript module, so it is not linked from the page | Use it in that module |
 | Some fixed pixel values remain | Borders (1px to 3px), the focus ring, icon sizes and maximum widths. These are fine details and layout limits, not text or spacing, so they sit outside the spacing scale on purpose | None needed |
 
 **Overall:** the five root causes from the diagnosis are fixed at the source: the page is built for phones first, ordered by what customers need, written in semantic HTML, finished (every link and button works), and styled from one visual system. What remains needs real information from Kwame rather than more code.

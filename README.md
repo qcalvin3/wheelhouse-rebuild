@@ -1,7 +1,7 @@
 # Wheelhouse Bike Repair: Page Rebuild
 
 **Live page:** https://qcalvin3.github.io/wheelhouse-rebuild/
-**Original site (before):** [commit e0c6f94](https://github.com/qcalvin3/wheelhouse-rebuild/tree/e0c6f94)
+
 
 **Contents:** 1. Understanding the brief · 2. Sketch and structure · 3. Diagnosis · 4. Visual system · 5. Additional improvement · 6. Audit
 
@@ -110,7 +110,7 @@ All colours, sizes and spacing come from CSS custom properties at the top of `cs
 
 | Area | Check | Result |
 |---|---|---|
-| Semantic HTML | Validation | 0 errors, 0 warnings (after fixing the phone number spacing below) |
+| Semantic HTML | Validation | W3C Markup Validation Service: no errors or warnings (after fixing the phone number spacing below) |
 | Semantic HTML | Landmarks | `header`, `nav`, `main`, `footer`, plus a labelled `section` for each block |
 | Semantic HTML | Heading outline | One `h1`, an `h2` for each section, `h3` for each service. No skipped levels |
 | Semantic HTML | Buttons and links | Links go somewhere (sections, `tel:`, WhatsApp, the one-tap messages, maps, email); the form uses a real submit `button`; the menu and questions use `<details>`. No JavaScript is needed for any of it |

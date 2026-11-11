@@ -34,8 +34,6 @@ Kwame's customers arrive on a phone, in a hurry, comparing two or three shops, a
 | 10 | Short form (backup)             | For people who prefer to message. One form replaces the two old forms that asked similar things. On a phone, calling is faster, so it is not the main action.                            | "search on their phone"                            |
 | 11 | Footer                          | Contact details repeated for anyone who scrolls to the end.                                                                                                                              |                                                    |
 
-**Why only a mobile sketch:** the brief says customers find and compare shops on their phones, often in a hurry, so the phone layout is where Kwame wins or loses them. The built page is still responsive: on wider screens it keeps the same order and lets sections sit side by side.
-
 **What I deliberately left out:** a large photo banner at the top. On a phone it would push the contact buttons and trust points off the first screen, and Kwame wants the site to build trust rather than look trendy.
 
 **Changes made during the build:** block 10 became "Message Kwame in one tap": one-tap WhatsApp messages for common problems (my additional improvement, section 5) plus a single message box that also sends through WhatsApp. This replaced the planned name, phone and problem form, because WhatsApp already gives Kwame the customer's name and number, so he can always reply (the old booking form had no phone field at all). The photo in block 4 is a clearly labelled placeholder until Kwame supplies a real one; using a stock photo of a stranger as "Kwame" would undermine the trust the section is meant to build.

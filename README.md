@@ -1,5 +1,10 @@
 # Wheelhouse Bike Repair: Page Rebuild
 
+**Live page:** https://qcalvin3.github.io/wheelhouse-rebuild/
+**Original site (before):** [commit e0c6f94](https://github.com/qcalvin3/wheelhouse-rebuild/tree/e0c6f94)
+
+**Contents:** 1. Understanding the brief · 2. Sketch and structure · 3. Diagnosis · 4. Visual system · 5. Additional improvement · 6. Audit
+
 ## 1. Understanding the brief
 
 | Question                                   | Answer                                                                                                                                                                                                           | From the brief                                                                                                                                           |
@@ -11,7 +16,7 @@
 
 ## 2. Sketch and structure
 
-![Page structure sketch, mobile and desktop](docs/sketch.png)
+![Mobile page structure sketch, numbered blocks 1 to 11](docs/sketch.png)
 
 Kwame's customers arrive on a phone, in a hurry, comparing two or three shops, and they pick the one that "looks like it knows what it is doing". So the first phone screen (blocks 1 to 4, above the dashed line) answers three questions in order: **can this shop fix my problem nearby, can I reach them right now, and can I trust them?** Everything below the line is detail for people who are still deciding.
 
@@ -19,17 +24,21 @@ Kwame's customers arrive on a phone, in a hurry, comparing two or three shops, a
 | -- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
 | 1  | Header with Menu and Call       | Calling is the quickest way for a customer to reach Kwame, so the Call button is always at the top. The menu lets them jump straight to what they need, like prices or directions, without scrolling the whole page on a small screen. I kept the header small so the important information still fits on the first screen.                                                   | "They need it fixed today"                         |
 | 2  | What and where                  | As soon as customers open the site, they can see where the shop is, whether it fixes their problem, and that most repairs are done the same day.                                        | "a flat, a broken chain… a nearby workshop"       |
-| 3  | Open today + Call and WhatsApp  | Now they know the shop can fix their problem, the next step is reaching it. Today's hours answer "can they fix it today?"                                                                            | "They need it fixed today"                         |
-| 4  | Why riders trust Wheelhouse | Real facts from the old site (Kwame repairs every bike personally, open since 2019, price agreed before work) plus a real photo of Kwame. This is what wins the side-by-side comparison. | "I do good work here. The site does not say that." |
+| 3  | Opening hours + Call and WhatsApp | Now they know the shop can fix their problem, the next step is reaching it. The opening hours answer "can they fix it today?", and one tap calls or opens WhatsApp. | "They need it fixed today"                         |
+| 4  | Why riders trust Wheelhouse | Real facts from the old site (Kwame repairs every bike personally, open since 2019, price agreed before work) plus a photo of Kwame at work. This is what wins the side-by-side comparison. | "I do good work here. The site does not say that." |
 | 5  | Services and from prices        | People compare shops on what they fix and roughly what it costs. Real prices from the old site.                                                                                          | "compare a few shops side by side on their phones" |
 | 6  | How it works                    | Bring it in, Kwame calls with a price, you approve, collect. Removes the fear of a surprise bill.                                                                                        | "confidence that he is reliable or professional"   |
 | 7  | Questions                       | Remaining doubts (repair times, walk-ins, bike types) for people still deciding.                                                                                                         | "confidence that he is reliable"                   |
 | 8  | About Kwame                     | Makes the shop feel personal and real. Detail, so it sits lower.                                                                                                                         | "I do good work here"                              |
-| 9  | Find the workshop               | Full address, hours, directions and a map or landmark. Adum is busy, so a landmark helps people find the shop.                                                                           | "a nearby workshop"                                |
+| 9  | Find the workshop               | Full address, hours, every contact option and a Google Maps directions link. Adum is busy, so directions help people find the shop.                                                     | "a nearby workshop"                                |
 | 10 | Short form (backup)             | For people who prefer to message. One form replaces the two old forms that asked similar things. On a phone, calling is faster, so it is not the main action.                            | "search on their phone"                            |
 | 11 | Footer                          | Contact details repeated for anyone who scrolls to the end.                                                                                                                              |                                                    |
 
+**Why only a mobile sketch:** the brief says customers find and compare shops on their phones, often in a hurry, so the phone layout is where Kwame wins or loses them. The built page is still responsive: on wider screens it keeps the same order and lets sections sit side by side.
+
 **What I deliberately left out:** a large photo banner at the top. On a phone it would push the contact buttons and trust points off the first screen, and Kwame wants the site to build trust rather than look trendy.
+
+**Changes made during the build:** block 10 became "Message Kwame in one tap": one-tap WhatsApp messages for common problems (my additional improvement, section 5) plus a single message box that also sends through WhatsApp. This replaced the planned name, phone and problem form, because WhatsApp already gives Kwame the customer's name and number, so he can always reply (the old booking form had no phone field at all). The photo in block 4 is a clearly labelled placeholder until Kwame supplies a real one; using a stock photo of a stranger as "Kwame" would undermine the trust the section is meant to build.
 
 ## 3. Diagnosis of the original site
 
@@ -65,15 +74,69 @@ The nine findings come down to five root causes. Fixing these, not each symptom 
 
 ## 4. Visual system
 
-All colours, sizes and spacing come from CSS custom properties at the top of `css/styles.css`. No one-off values.
+All colours, sizes and spacing come from CSS custom properties at the top of `css/styles.css`. There are no inline styles and no colours set outside the variables.
 
 | Choice | Value | Why, for Wheelhouse |
 |---|---|---|
-| Primary colour | `#1f4e8c` deep blue | Reads as dependable and professional. White text on it is 8.3:1, easy to read outdoors. Replaces the old site's six different card colours with one |
-| Accent | `#b45309` burnt amber | For links and highlights only. 4.7:1 on the background |
-| Text | `#1b2430` on `#f5f7fa` | 14.6:1 contrast, readable in sunlight |
-| Font | System font | No download, so the page stays fast on mobile data. Clean, not trendy |
-| Body size | 16px | Readable without zooming (the old site used 11px to 13px) |
-| Type scale | 1.2 ratio; headline 28px to 40px with `clamp()` | Headings clearly different, but the headline never pushes the Call button off the first phone screen |
+| Primary colour | `#b93a0b` safety orange | Workshop and hi-vis colours say "trade", so the site looks like a real repair shop. Used only for actions and prices, so the Call button is impossible to miss. White text on it is 5.7:1. Replaces the old site's six different card colours with one |
+| Text | `#1c1c1c` charcoal on `#f7f6f3` | 15.8:1 contrast, readable outdoors in sunlight |
+| Accent | `#1f4e8c` blue | Used only for the keyboard focus ring, so keyboard users can always see where they are, including on orange buttons |
+| Supporting colours | Warm off-white backgrounds and a soft warm band behind the trust section | Calm and plain rather than trendy. Every text pair passes contrast (see the audit) |
+| Font | System font | No download, so the page stays fast on mobile data. Clean and familiar |
+| Body size | 16px, with 18px for the intro and prices | Readable without zooming (the old site used 11px to 13px) |
+| Type scale | 1.2 ratio; headline 28px to 40px with `clamp()` | Headings are clearly different, but the headline never pushes the Call button off the first phone screen |
 | Spacing | 4 / 8 / 16 / 24 / 32 / 48 | Tight inside groups, loose between sections, so it is clear what belongs together |
 | Tap targets | At least 44px tall | Call and WhatsApp are easy to tap with one thumb |
+
+## 5. Additional improvement: one-tap WhatsApp messages
+
+**The customer problem:** a customer with a broken bike is in a hurry, often standing next to the bike, typing on a phone with one hand. Writing a message from scratch is slow, and vague messages ("my bike has a problem") mean Kwame has to ask questions back before he can help, which wastes time for both of them.
+
+**What I built:** in "Message Kwame in one tap", five buttons for the most common problems (flat tyre, chain, brakes, gears, full service). Tapping one opens WhatsApp with the message already written, for example "Hi Kwame, I have a flat tyre. Can I bring my bike in today?", so the customer only has to press send, and can add a photo. A free-text box below covers anything else, and also sends through WhatsApp.
+
+**What it is worth to Kwame:** contacting the shop drops to two taps, at the exact moment the customer is choosing between shops. Kwame gets clear messages that already say what is wrong and that the customer wants it fixed today, and he always gets their number, so he can reply straight away. The problems listed come from the brief ("a flat, a broken chain, or a bike that has not been serviced in years") and from his real services.
+
+**How it works:** plain HTML links. Each button is a WhatsApp link with the message added to the end (`https://wa.me/233244000001?text=...`), with the text URL-encoded (spaces become `%20`). No JavaScript, so nothing can fail to load, and it works on any phone with WhatsApp.
+
+**Accessible and consistent:** each button is a real link with clear text, at least 44px tall, reachable with the keyboard with a visible focus ring, and styled from the same visual system as the rest of the page.
+
+**Why this and not something bigger:** online booking with payment would add more, but it could not be finished properly in the time, and Kwame's customers already use WhatsApp. One complete improvement that removes effort at the moment of contact is worth more to him than a half-built feature.
+
+## 6. Audit of the rebuilt page
+
+**How I checked:** automated HTML validation (`html-validate`), an automated accessibility check (axe-core) at 360px and 1280px, the W3C Easy Checks by hand (page title, headings, image text, contrast, keyboard focus, 200% zoom, form labels), every colour pair measured for contrast, and a search of the CSS for values that bypass the visual system.
+
+### Results
+
+| Area | Check | Result |
+|---|---|---|
+| Semantic HTML | Validation | 0 errors, 0 warnings (after fixing the phone number spacing below) |
+| Semantic HTML | Landmarks | `header`, `nav`, `main`, `footer`, plus a labelled `section` for each block |
+| Semantic HTML | Heading outline | One `h1`, an `h2` for each section, `h3` for each service. No skipped levels |
+| Semantic HTML | Buttons and links | Links go somewhere (sections, `tel:`, WhatsApp, the one-tap messages, maps, email); the form uses a real submit `button`; the menu and questions use `<details>`. No JavaScript is needed for any of it |
+| Accessibility | Automated check (axe-core) | 0 violations at 360px and 1280px |
+| Accessibility | Page title | "Wheelhouse Bike Repair \| Adum, Kumasi": says what and where |
+| Accessibility | Image text | The one image has alt text that says it is a placeholder |
+| Accessibility | Contrast | Every text pair passes 4.5:1, lowest 4.9:1 (the tick marks); body text 15.8:1; orange links, prices and buttons 5.3:1 to 5.7:1 |
+| Accessibility | Keyboard | Tab order follows the page: skip link, logo, menu, call, both contact buttons, each question, each contact link, each one-tap message, the form. A visible blue focus ring on every stop |
+| Accessibility | Zoom and text resize | At 200% text size, nothing is cut off and there is no sideways scrolling |
+| Accessibility | Form labels | The message box has a visible `<label>` |
+| Visual consistency | Values from the system | 0 inline styles, 0 colours outside the variables, every font size from the type scale |
+
+### What I fixed, in priority order
+
+1. **Phone numbers could split across two lines** on narrow phones (flagged by the validator 7 times). Fixed with non-breaking spaces. A number broken in half is easy to misread at the exact moment someone is about to call, so this was a quick win with high value.
+2. **One font size (18px) and one padding value sat outside the visual system.** Added `--font-size-lead` and used the spacing variable, so every size now comes from the system.
+
+### What I deliberately left, and why
+
+| Left | Why it is not fixed here | Next step |
+|---|---|---|
+| Real photo of Kwame | High value for trust, but I cannot supply a real photo, and a stock photo of a stranger would be dishonest | Kwame provides a photo; replace the placeholder, keeping `width` and `height` |
+| Real phone, WhatsApp and email | The numbers in the brief's starter site are placeholders | Confirm Kwame's real details before going live |
+| Exact map pin or landmark | The site only knows "Shop 4, Adum Commercial Area", so the link searches that area | Ask Kwame for a nearby landmark or his exact Google Maps location |
+| Menu stays a "Menu" button on desktop | `<details>` works without JavaScript and suits phones, where most customers are. Showing the links in a row on desktop is low value for this brief | Show the links inline on wide screens in a later JavaScript or CSS pass |
+| A live "Open now / Closed" status | It would answer "can I bring it in now?" instantly, but it needs JavaScript, which this course covers in the next module | Add it in the Applied JavaScript module |
+| Some fixed pixel values remain | Borders (1px to 3px), the focus ring, icon sizes and maximum widths. These are fine details and layout limits, not text or spacing, so they sit outside the spacing scale on purpose | None needed |
+
+**Overall:** the five root causes from the diagnosis are fixed at the source: the page is built for phones first, ordered by what customers need, written in semantic HTML, finished (every link and button works), and styled from one visual system. What remains needs real information from Kwame rather than more code.

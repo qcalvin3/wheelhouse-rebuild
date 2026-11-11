@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
-  <rect width="400" height="300" fill="#e6ebf2"/>
-  <rect x="1" y="1" width="398" height="298" fill="none" stroke="#9aa6b6" stroke-width="2" stroke-dasharray="8 6"/>
-  <text x="200" y="140" font-family="system-ui, Arial, sans-serif" font-size="20" font-weight="700" fill="#4a5565" text-anchor="middle">Photo of Kwame at work</text>
-  <text x="200" y="170" font-family="system-ui, Arial, sans-serif" font-size="15" fill="#4a5565" text-anchor="middle">(to be supplied by Kwame)</text>
+  <rect width="400" height="300" fill="#ebe6df"/>
+  <rect x="1" y="1" width="398" height="298" fill="none" stroke="#a8a196" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="200" y="140" font-family="system-ui, Arial, sans-serif" font-size="20" font-weight="700" fill="#505050" text-anchor="middle">Photo of Kwame at work</text>
+  <text x="200" y="170" font-family="system-ui, Arial, sans-serif" font-size="15" fill="#505050" text-anchor="middle">(to be supplied by Kwame)</text>
 </svg>

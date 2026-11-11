@@ -1,13 +1,23 @@
+/* =========================================================
+   Wheelhouse Bike Repair · styles.css
+   Mobile first: base styles are for phones (about 360px).
+   Media queries at the bottom add layout as screens widen.
+   Every colour, size and gap comes from the variables below.
+   ========================================================= */
+
+/* ---------- 1. Visual system ---------- */
 :root {
-  /* Colour roles: Workshop blue */
-  --color-bg: #f5f7fa;
+  /* Colour roles: Charcoal and safety orange */
+  --color-bg: #f7f6f3;
   --color-surface: #ffffff;
-  --color-text: #1b2430;
-  --color-muted: #4a5565;
-  --color-primary: #1f4e8c;
+  --color-primary-soft: #f3ece6;   /* warm band behind the trust section */
+  --color-text: #1c1c1c;
+  --color-muted: #505050;
+  --color-primary: #b93a0b;        /* safety orange: Call button, links, prices */
+  --color-primary-dark: #962f09;   /* button hover */
   --color-on-primary: #ffffff;
-  --color-accent: #b45309;
-  --color-border: #d5dbe3;
+  --color-accent: #1f4e8c;         /* blue: keyboard focus ring */
+  --color-border: #e0dcd5;
   --color-success: #1d7a46;
   --color-error: #b3261e;
 
@@ -28,5 +38,464 @@
   --space-4: 1.5rem;   /* 24px */
   --space-5: 2rem;     /* 32px */
   --space-6: 3rem;     /* 48px */
-  --tap-target: 2.75rem; /* 44px minimum for buttons */
+  --tap-target: 2.75rem; /* 44px minimum for buttons and links */
+
+  --radius: 6px;
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-body);
+}
+
+h1,
+h2,
+h3 {
+  line-height: var(--line-height-heading);
+  margin: 0 0 var(--space-3);
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); margin-bottom: var(--space-2); }
+
+p {
+  margin: 0 0 var(--space-3);
+  max-width: 65ch; /* comfortable line length */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* One clear focus style for everything keyboard users can reach */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Centred content column, full width on phones with a 16px gutter */
+.container {
+  width: min(100% - 2 * var(--space-3), 70rem);
+  margin-inline: auto;
+}
+
+.narrow > * {
+  max-width: 45rem; /* keeps text-heavy sections readable, same left edge as the rest */
+}
+
+/* Skip link: hidden until a keyboard user tabs to it */
+.skip-link {
+  position: absolute;
+  left: var(--space-3);
+  top: -100px;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: var(--space-2);
+}
+
+/* ---------- 3. Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap-target);
+  padding: var(--space-2) var(--space-4);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius);
+  font: inherit;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: var(--color-on-primary);
+}
+
+.btn-secondary {
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background: var(--color-primary-soft);
+}
+
+.btn-small {
+  padding-inline: var(--space-3);
+}
+
+/* ---------- 4. Header (block 1) ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 3.75rem;
+}
+
+.logo {
+  margin-right: auto;
+  color: var(--color-text);
+  font-size: var(--font-size-h3);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.site-nav details {
+  position: relative;
+}
+
+.site-nav summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  padding: var(--space-2) var(--space-3);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.site-nav summary::-webkit-details-marker {
+  display: none;
+}
+
+.site-nav ul {
+  position: absolute;
+  right: 0;
+  top: calc(100% + var(--space-2));
+  min-width: 13rem;
+  margin: 0;
+  padding: var(--space-2);
+  list-style: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgb(28 28 28 / 0.12);
+}
+
+.site-nav ul a {
+  display: flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  padding-inline: var(--space-3);
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: var(--radius);
+}
+
+.site-nav ul a:hover {
+  background: var(--color-primary-soft);
+}
+
+/* ---------- 5. Hero: what, where, hours, call (blocks 2 and 3) ---------- */
+.hero {
+  background: var(--color-surface);
+  padding-block: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero-lead {
+  font-size: 1.1rem;
+}
+
+.hours {
+  margin-bottom: var(--space-3);
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  max-width: 28rem;
+}
+
+.actions .btn {
+  padding-inline: var(--space-2);
+  white-space: nowrap;
+}
+
+.address {
+  margin: var(--space-3) 0 0;
+  color: var(--color-muted);
+  font-size: var(--font-size-small);
+}
+
+/* ---------- 6. Trust (block 4) ---------- */
+.trust {
+  background: var(--color-primary-soft);
+  padding-block: var(--space-5);
+}
+
+.trust-inner {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.ticks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.ticks li {
+  position: relative;
+  padding-left: var(--space-5);
+}
+
+.ticks li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.trust-photo {
+  border-radius: var(--radius);
+  width: 100%;
+}
+
+/* ---------- 7. General sections (blocks 5 to 10) ---------- */
+.section {
+  padding-block: var(--space-5);
+}
+
+.section-alt {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-border);
+}
+
+.section-intro {
+  color: var(--color-muted);
+}
+
+/* Services and prices (block 5) */
+.service-list {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.service-card p {
+  margin-bottom: var(--space-2);
+}
+
+.price {
+  margin-top: auto;     /* keeps prices lined up at the bottom of each card */
+  margin-bottom: 0;
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* How it works (block 6) */
+.steps {
+  counter-reset: step;
+  margin: 0 0 var(--space-3);
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 3rem;
+  min-height: 2rem;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-weight: 700;
+}
+
+.note {
+  color: var(--color-muted);
+  font-size: var(--font-size-small);
+}
+
+/* Questions (block 7) */
+.faq {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--tap-target);
+  padding-block: var(--space-3);
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-primary);
+}
+
+.faq[open] summary::after {
+  content: "−";
+}
+
+/* Find the workshop (block 9) */
+address {
+  font-style: normal;
+}
+
+address p {
+  margin-bottom: var(--space-2);
+}
+
+/* Message form (block 10) */
+.message-form {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 32rem;
+}
+
+.message-form label {
+  font-weight: 700;
+}
+
+.message-form textarea {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 2px solid var(--color-muted);   /* 3:1 or better, so the box edge is visible */
+  border-radius: var(--radius);
+  font: inherit;
+  resize: vertical;
+}
+
+.message-form .btn {
+  justify-self: start;
+  margin-top: var(--space-2);
+}
+
+/* ---------- 8. Footer (block 11) ---------- */
+.site-footer {
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding-block: var(--space-5);
+  font-size: var(--font-size-small);
+}
+
+.site-footer p {
+  margin-bottom: var(--space-2);
+}
+
+.site-footer a {
+  color: var(--color-on-primary);
+}
+
+/* ---------- 9. Wider screens ---------- */
+
+/* Tablets and up: about 768px */
+@media (min-width: 48rem) {
+  .hero,
+  .trust,
+  .section {
+    padding-block: var(--space-6);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: none;
+  }
+
+  .trust-inner {
+    grid-template-columns: 3fr 2fr;
+    align-items: center;
+  }
+
+  .service-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Laptops and up: about 1024px */
+@media (min-width: 64rem) {
+  .service-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

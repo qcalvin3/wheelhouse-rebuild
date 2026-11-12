@@ -98,7 +98,6 @@ All colours, sizes and spacing come from CSS custom properties at the top of `cs
 
 **Accessible and consistent:** each button is a real link with clear text, at least 44px tall, reachable with the keyboard with a visible focus ring, and styled from the same visual system as the rest of the page.
 
-**Why this and not something bigger:** online booking with payment would add more, but it could not be finished properly in the time, and Kwame's customers already use WhatsApp. One complete improvement that removes effort at the moment of contact is worth more to him than a half-built feature.
 
 ## 6. Audit of the rebuilt page
 

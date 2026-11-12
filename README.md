@@ -76,7 +76,7 @@ All colours, sizes and spacing come from CSS custom properties at the top of `cs
 
 | Choice | Value | Why, for Wheelhouse |
 |---|---|---|
-| Primary colour | `#b93a0b` safety orange | Workshop and hi-vis colours say "trade", so the site looks like a real repair shop. Used only for actions and prices, so the Call button is impossible to miss. White text on it is 5.7:1. Replaces the old site's six different card colours with one |
+| Primary colour | `#b93a0b` safety orange | I chose workshop colours so the site looks like a real bike repair shop. Safety orange is kept for buttons, links, prices and small markers, so the Call button is easy to spot straight away. White text on it is 5.7:1. Replaces the old site's six different card colours with one |
 | Text | `#1c1c1c` charcoal on `#f7f6f3` | 15.8:1 contrast, readable outdoors in sunlight |
 | Accent | `#1f4e8c` blue | Used only for the keyboard focus ring, so keyboard users can always see where they are, including on orange buttons |
 | Supporting colours | Warm off-white backgrounds and a soft warm band behind the trust section | Calm and plain rather than trendy. Every text pair passes contrast (see the audit) |

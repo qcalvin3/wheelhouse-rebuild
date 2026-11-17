@@ -34,7 +34,7 @@ Kwame’s customer could not book a repair one-handed or with only a keyboard. I
   2. Go to Book a Service (or press the Book Repair menu link).
   3. Fill in Your Name, Phone or WhatsApp Number and What does your bike need?
   4. Press Submit Request.
-- **Evidence:** the screenshot below shows the 405 page. In the page source (DevTools), the form uses `method="post"` with `action="#booking"`. GitHub Pages only serves static files and does not accept POST requests, which is likely why it returns 405 (this is my theory about the cause). No script handles the form, and the confirmation area `#booking-list` stays empty.
+- **Evidence:** the screenshot below shows the 405 page. In the page source (DevTools), the form uses `method="post"` with `action="#booking"`. GitHub Pages only serves static files and does not accept POST requests, which is likely why it returns 405. No script handles the form, and the confirmation area `#booking-list` stays empty.
   ![Blank page reading 405 Not Allowed after pressing Submit Request](evidence/01-form-405.png)
 - **Principle and criterion:** Understandable: the site does something the person cannot predict and gives them no feedback. This is a broken feature more than a single WCAG criterion, so I have not attached a criterion number to it.
 - **Who it affects and how:** everyone who tries to book online. It hits Kwame's customer hardest: he typed his details one-handed, which is slow and tiring, and then lost all of it. A stranger in his position would leave and book with another shop, and Kwame would never know.
@@ -43,7 +43,7 @@ Kwame’s customer could not book a repair one-handed or with only a keyboard. I
 
 ### 2. Keyboard users lose sight of the Submit button behind the sticky header
 
-- **Where:** booking form, the Submit Request button, when moving backwards with Shift+Tab. Also after using the Book Repair menu link.
+- **Where:** booking form, the Submit Request button, when moving backwards with Shift+Tab.
 - **What happens:** when I tab down past the form to the FAQ and then press Shift+Tab to go back up, the focused Submit Request button ends up completely hidden behind the sticky header. I can't see where I am. After pressing the Book Repair menu link, the section heading also sits under the header.
 - **How to reproduce:**
   1. On a laptop, press Tab until focus reaches the last FAQ question.

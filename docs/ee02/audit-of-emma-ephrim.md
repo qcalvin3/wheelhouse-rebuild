@@ -2,7 +2,7 @@
 
 - Site audited: https://emma-ephrim.github.io/wheelhouse-bike-repair/
 - Date tested: 16 November 2026
-- Audited by: Calvin Quashie
+- Audited by: Calvin Nunana Quashie
 - Standard: WCAG 2.2, level AA
 
 ## How I tested
@@ -12,7 +12,7 @@
   ![WAVE summary: 0 errors, AIM score 10](evidence/00-wave.png)
   ![Lighthouse desktop: Accessibility 100](evidence/00-lighthouse-desktop.png)
   ![Lighthouse mobile: Accessibility 100](evidence/00-lighthouse-mobile.png)
-- **Keyboard:** Chrome on my laptop, mouse unplugged. Journeys: home page to a sent booking request, the menu links, the FAQ, then Tab backwards (Shift+Tab) up the page.
+- **Keyboard:** Chrome and Edge on my laptop, mouse unplugged. Journeys: home page to a sent booking request, the menu links, the FAQ, then Tab backwards (Shift+Tab) up the page.
 - **Focus visibility:** Chrome, plus Safari on macOS for the header.
 - **Zoom, text size and reflow:** Chrome at 200% and 400% zoom, Chrome DevTools at 320px wide, and Chrome's font size set to Very large.
 - **Screen reader:** Windows Narrator with Chrome, on the services, the form and the page structure.
@@ -21,7 +21,7 @@
 
 ## Summary
 
-Kwame's customer could not book a repair one-handed or with only a keyboard. I found the main reason: the booking form does not work for anyone. Pressing Submit Request on the live site shows a blank "405 Not Allowed" page, and the request never reaches Kwame. Keyboard users also lose track of where they are, because the sticky header hides the Submit button when they tab back up the page, and Safari's focus ring is almost invisible on the dark header. A lot already works well: the page structure is clear, every field has a proper label, Narrator read the page correctly, and the site was comfortable to use with one thumb.
+Kwame’s customer could not book a repair one-handed or with only a keyboard. I tested that same journey on this version of the rebuilt site and found barriers that would stop him. The biggest is that the booking form does not work for anyone: pressing Submit Request on the live site shows a blank “405 Not Allowed” page, and the request never reaches Kwame. Keyboard users also lose track of where they are, because the sticky header hides the Submit button when they tab back up the page, and Safari’s focus ring is almost invisible on the dark header. A lot already works well: the page structure is clear, every field has a proper label, Narrator read the page correctly, and the site was comfortable to use with one thumb.
 
 ## Findings, in priority order
 
@@ -152,7 +152,6 @@ Kwame's customer could not book a repair one-handed or with only a keyboard. I f
 
 ## Not tested, and limits of this audit
 
-- I tested focus visibility in Chrome and Safari only, not Firefox or Edge.
 - I used Narrator with Chrome. I did not test VoiceOver, NVDA or TalkBack, and Narrator usually works best with Edge.
 - Phone testing was on one device, my iPhone, in Safari only. I did not test an Android phone.
 - I did not test dark mode or a slow network connection.

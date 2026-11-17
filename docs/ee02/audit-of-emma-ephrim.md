@@ -21,7 +21,7 @@
 
 ## Summary
 
-Kwame’s customer could not book a repair one-handed or with only a keyboard. I tested that same journey on this version of the rebuilt site and found barriers that would stop him. The biggest is that the booking form does not work for anyone: pressing Submit Request on the live site shows a blank “405 Not Allowed” page, and the request never reaches Kwame. Keyboard users also lose track of where they are, because the sticky header hides the Submit button when they tab back up the page, and Safari’s focus ring is almost invisible on the dark header. A lot already works well: the page structure is clear, every field has a proper label, Narrator read the page correctly, and the site was comfortable to use with one thumb.
+Kwame’s customer could not book a repair one-handed or with only a keyboard. I tested that same journey on this version of the rebuilt site and found barriers that would stop him. The biggest is that the booking form does not work for anyone: pressing Submit Request on the live site shows a blank “405 Not Allowed” page, and the request never reaches Kwame. Keyboard users also lose track of where they are, because the sticky header hides the Submit button when they tab back up the page, and Safari’s focus ring is almost invisible on the dark header. A lot already works well: the page structure is clear, every field has a proper label, Narrator and VoiceOver both read the page correctly, and the site was comfortable to use with one thumb.
 
 ## Findings, in priority order
 
@@ -143,7 +143,7 @@ Kwame’s customer could not book a repair one-handed or with only a keyboard. I
 ## What works well
 
 - **Clear structure:** the page uses header, nav, main and footer landmarks, and the headings go in order (h1, then h2 for each section, then h3 for each service).
-- **Screen reader:** with Narrator and VoiceOver both read the page read correctly. Headings, landmarks, links, the form labels and the button were all announced, and each price was read inside its own service card.
+- **Screen reader:** Narrator and VoiceOver both read the page correctly. Headings, landmarks, links, the form labels and the button were all announced, and each price was read inside its own service card.
 - **Form labels:** every field has a real `<label>`, and Submit Request is a real `<button>`.
 - **FAQ:** built with `<details>` and `<summary>`, so it opens and closes with the keyboard.
 - **Keyboard shortcut to the form:** keyboard users can reach the booking form quickly with the Book Repair menu link (6 Tab presses and Enter, then Tab into Your Name). Without it, it takes 14 Tab presses from the address bar. There is no skip link, but the menu link and the `<main>` landmark mean this is not a failure. A "Skip to main content" link would still be a nice small improvement.

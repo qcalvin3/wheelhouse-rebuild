@@ -15,7 +15,7 @@
 - **Keyboard:** Chrome and Edge on my laptop, mouse unplugged. Journeys: home page to a sent booking request, the menu links, the FAQ, then Tab backwards (Shift+Tab) up the page.
 - **Focus visibility:** Chrome, plus Safari on macOS for the header.
 - **Zoom, text size and reflow:** Chrome at 200% and 400% zoom, Chrome DevTools at 320px wide, and Chrome's font size set to Very large.
-- **Screen reader:** Windows Narrator with Chrome, on the services, the form and the page structure.
+- **Screen reader:** Windows Narrator with Chrome, and VoiceOver with Safari on macOS, on the services, the form and the page structure.
 - **Phone:** my iPhone in Safari, one thumb only: the whole page, the header buttons and the booking form.
 - **Pages and journeys covered:** the whole single page, with most time on the booking journey because that is where Kwame's customer got stuck.
 
@@ -43,7 +43,7 @@ Kwame’s customer could not book a repair one-handed or with only a keyboard. I
 
 ### 2. Keyboard users lose sight of the Submit button behind the sticky header
 
-- **Where:** booking form, the Submit Request button, when moving backwards with Shift+Tab.
+- **Where:** booking form, the Submit Request button, when moving backwards with Shift+Tab. Also after using the Book Repair menu link.
 - **What happens:** when I tab down past the form to the FAQ and then press Shift+Tab to go back up, the focused Submit Request button ends up completely hidden behind the sticky header. I can't see where I am. After pressing the Book Repair menu link, the section heading also sits under the header.
 - **How to reproduce:**
   1. On a laptop, press Tab until focus reaches the last FAQ question.
@@ -143,7 +143,7 @@ Kwame’s customer could not book a repair one-handed or with only a keyboard. I
 ## What works well
 
 - **Clear structure:** the page uses header, nav, main and footer landmarks, and the headings go in order (h1, then h2 for each section, then h3 for each service).
-- **Screen reader:** with Narrator, the page read correctly. Headings, landmarks, links, the form labels and the button were all announced, and each price was read inside its own service card.
+- **Screen reader:** with Narrator and VoiceOver both read the page read correctly. Headings, landmarks, links, the form labels and the button were all announced, and each price was read inside its own service card.
 - **Form labels:** every field has a real `<label>`, and Submit Request is a real `<button>`.
 - **FAQ:** built with `<details>` and `<summary>`, so it opens and closes with the keyboard.
 - **Keyboard shortcut to the form:** keyboard users can reach the booking form quickly with the Book Repair menu link (6 Tab presses and Enter, then Tab into Your Name). Without it, it takes 14 Tab presses from the address bar. There is no skip link, but the menu link and the `<main>` landmark mean this is not a failure. A "Skip to main content" link would still be a nice small improvement.
@@ -152,7 +152,7 @@ Kwame’s customer could not book a repair one-handed or with only a keyboard. I
 
 ## Not tested, and limits of this audit
 
-- I used Narrator with Chrome. I did not test VoiceOver, NVDA or TalkBack, and Narrator usually works best with Edge.
+- I used Narrator with Chrome and VoiceOver with Safari on macOS. I did not test NVDA, TalkBack or VoiceOver on iPhone.
 - Phone testing was on one device, my iPhone, in Safari only. I did not test an Android phone.
 - I did not test dark mode or a slow network connection.
 - The open/closed sign uses the visitor's own clock, not Kumasi time. That is about accuracy rather than accessibility, so I have left it out of the findings.

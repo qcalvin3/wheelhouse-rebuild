@@ -1,15 +1,30 @@
 // Wheelhouse Bike Repair — script.js
-// This file is intentionally empty.
-// You will add the interactive behaviour for this page here in Applied JavaScript.
 
-// === SECTION 1: Common questions accordion ===
-// Each .faq-trigger should expand and collapse its paired .faq-body when clicked.
+// === Menu: close it after a link is chosen, on Escape, or when focus leaves ===
+const menu = document.querySelector('.site-nav details');
 
-// === SECTION 2: Service request tracker ===
-// When the booking form is submitted, add the customer's name and request
-// to the list below the form. Prevent the page from refreshing on submit.
+if (menu) {
+  const toggle = menu.querySelector('summary');
 
-// === SECTION 3: Contact form ===
-// Validate the contact form before submission.
-// Show a success message when all fields are correctly filled in.
-// If a required field is missing, tell the user what needs to be fixed.
+  // Close after a link is chosen, so the menu doesn't cover the section
+  menu.addEventListener('click', (event) => {
+    if (event.target.closest('a')) {
+      menu.open = false;
+    }
+  });
+
+  // Escape closes the menu and puts focus back on "Menu"
+  menu.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu.open) {
+      menu.open = false;
+      toggle.focus();
+    }
+  });
+
+  // Close when keyboard focus moves outside the menu
+  menu.addEventListener('focusout', (event) => {
+    if (!menu.contains(event.relatedTarget)) {
+      menu.open = false;
+    }
+  });
+}

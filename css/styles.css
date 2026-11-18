@@ -40,6 +40,8 @@
   --space-5: 2rem;     /* 32px */
   --space-6: 3rem;     /* 48px */
   --tap-target: 2.75rem; /* 44px minimum for buttons and links */
+  --header-height: 3.75rem; /* sticky header height */
+
 
   --radius: 6px;
 }
@@ -49,6 +51,12 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+
+/* Keep the sticky header from covering focused items and link targets */
+html {
+  scroll-padding-top: calc(var(--header-height) + var(--space-3));
 }
 
 body {
@@ -175,7 +183,7 @@ a:hover {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  min-height: 3.75rem;
+  min-height: var(--header-height);
 }
 
 .logo {

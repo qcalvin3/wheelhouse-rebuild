@@ -1,6 +1,6 @@
 # Diagnosis of the original site
 
-[Back to README](../README.md)
+[Back to README](../../README.md)
 
 **How I tested:** Chrome DevTools device toolbar at 360 × 640 (a typical phone screen size, since the brief says customers search and compare shops on their phones), the keyboard only (Tab and Enter), the DevTools colour picker for contrast, the Network tab on Slow 4G, and reading `index.html` and `styles.css` line by line. Screenshots are in [`evidence/`](evidence/). Line numbers refer to the original files in [commit e0c6f94](https://github.com/qcalvin3/wheelhouse-rebuild/tree/e0c6f94), before the rebuild.
 

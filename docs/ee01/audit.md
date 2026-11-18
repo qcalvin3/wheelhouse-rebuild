@@ -1,6 +1,6 @@
 # Audit of the rebuilt page
 
-[Back to README](../..README.md)
+[Back to README](../../README.md)
 
 **How I checked:** the W3C Markup Validation Service and a stricter HTML checker (`html-validate`), Lighthouse on mobile and desktop, an automated accessibility check (axe-core) at 360px and 1280px, the W3C Easy Checks by hand (page title, headings, image text, contrast, keyboard focus, 200% zoom, form labels), every colour pair measured for contrast, and a search of the CSS for values that bypass the visual system.
 

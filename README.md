@@ -2,7 +2,7 @@
 
 **Live page:** https://qcalvin3.github.io/wheelhouse-rebuild/
 **Original site (before):** [commit e0c6f94](https://github.com/qcalvin3/wheelhouse-rebuild/tree/e0c6f94)
-**Full write-ups:** [diagnosis](docs/diagnosis.md) · [audit](docs/audit.md) · [screenshots](docs/evidence/)
+**Full write-ups:** [diagnosis](docs/ee01/diagnosis.md) · [audit](docs/ee01/audit.md) · [screenshots](docs/ee01/evidence/)
 
 **How to run it:** open the live page, or download the repo and open `index.html` in any browser. There is nothing to install or build.
 
@@ -17,7 +17,7 @@
 
 ## 2. Sketch and structure
 
-![Mobile page structure sketch, numbered blocks 1 to 11](docs/sketch.png)
+![Mobile page structure sketch, numbered blocks 1 to 11](docs/ee01/sketch.png)
 
 The numbers on the sketch match the rows below. Customers are in a hurry and comparing shops, so the first phone screen (above the dashed line) answers three questions in order: **can they fix my problem nearby, can I reach them now, and can I trust them?**
 
@@ -35,13 +35,13 @@ The numbers on the sketch match the rows below. Customers are in a hurry and com
 
 I left out a big photo banner at the top because on a phone it would push the Call button and trust points off the first screen.
 
-**What the first screen looks like now (360 × 640):** header, headline, opening hours, Call and WhatsApp buttons, and the start of the trust section all fit without scrolling. Screenshot: [`10-after-first-screen.png`](docs/evidence/10-after-first-screen.png).
+**What the first screen looks like now (360 × 640):** header, headline, opening hours, Call and WhatsApp buttons, and the start of the trust section all fit without scrolling. Screenshot: [`10-after-first-screen.png`](docs/ee01/evidence/10-after-first-screen.png).
 
 **Changed during the build** (marked in orange on the sketch): block 10 became one-tap WhatsApp messages plus one message box, because WhatsApp already gives Kwame the customer's number so he can always reply. The photo in block 4 is a labelled placeholder until Kwame sends a real one. A stock photo of a stranger would be lying about who he is.
 
 ## 3. Diagnosis of the original site
 
-Tested at 360 × 640 in DevTools, with the keyboard only, the colour picker for contrast, Slow 4G, and by reading the old code. **[Full findings table with evidence and line numbers](docs/diagnosis.md).**
+Tested at 360 × 640 in DevTools, with the keyboard only, the colour picker for contrast, Slow 4G, and by reading the old code. **[Full findings table with evidence and line numbers](docs/ee01/diagnosis.md).**
 
 | # | What customers ran into | Root cause | What it costs Kwame |
 |---|---|---|---|
@@ -85,10 +85,10 @@ Everything comes from CSS variables at the top of `css/styles.css`.
 
 ## 6. Audit of the rebuilt page
 
-**[Full audit with every check](docs/audit.md).** Key results:
+**[Full audit with every check](docs/ee01/audit.md).** Key results:
 
 - **W3C validator:** no errors or warnings. **Lighthouse:** 100 for Performance, Accessibility, Best Practices and SEO on mobile and desktop. **axe:** 0 problems.
-- **Keyboard:** Tab goes skip link, logo, Menu, Call, Call and WhatsApp buttons, questions, contact links, one-tap messages, form. A blue focus ring on every stop ([screenshot](docs/evidence/11-focus-ring.png)).
+- **Keyboard:** Tab goes skip link, logo, Menu, Call, Call and WhatsApp buttons, questions, contact links, one-tap messages, form. A blue focus ring on every stop ([screenshot](docs/ee01/evidence/11-focus-ring.png)).
 - **Contrast:** every text pair passes 4.5:1. **200% zoom:** nothing cut off, no sideways scroll.
 - **Image:** alt text is "Placeholder for a photo of Kwame repairing a bike in the workshop", so it is never read out as a real photo.
 - **Visual system:** no inline styles and no colours outside the variables.

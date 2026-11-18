@@ -161,10 +161,13 @@
       </div>
     </section>
 
-    <!-- 09 Find the workshop -->
-    <section id="find-us" class="section" aria-labelledby="find-title">
-      <div class="container narrow">
-        <div>
+    <!-- 09 + 10 Contact: Find the workshop and Message Kwame share one band,
+         side by side on laptops and stacked on phones -->
+    <div class="section">
+      <div class="container section-pair">
+
+        <!-- 09 Find the workshop -->
+        <section id="find-us" aria-labelledby="find-title">
           <h2 id="find-title">Find the workshop</h2>
           <address>
             <p><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0"/></svg>
@@ -180,33 +183,31 @@
           </address>
           <p class="hours"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/><path d="M12 7v5l3 3"/></svg>
             <span><strong>Open Monday to Saturday, 8am to 5:30pm</strong></span></p>
-        </div>
+        </section>
+
+        <!-- 10 Message Kwame (improvement: one-tap WhatsApp messages) -->
+        <section id="request" aria-labelledby="request-title">
+          <h2 id="request-title">Message Kwame in one tap</h2>
+          <p>Tap your problem and WhatsApp opens with the message already written. Just press send, and add a photo if you can.</p>
+          <ul class="quick-list">
+              <li><a class="quick-msg" href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20I%20have%20a%20flat%20tyre.%20Can%20I%20bring%20my%20bike%20in%20today%3F">Flat tyre or puncture</a></li>
+              <li><a class="quick-msg" href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20my%20chain%20is%20broken%20or%20slipping.%20Can%20I%20bring%20my%20bike%20in%20today%3F">Broken or slipping chain</a></li>
+              <li><a class="quick-msg" href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20my%20brakes%20are%20not%20working%20well.%20Can%20I%20bring%20my%20bike%20in%20today%3F">Brakes not working well</a></li>
+              <li><a class="quick-msg" href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20my%20gears%20are%20not%20changing%20properly.%20Can%20I%20bring%20my%20bike%20in%20today%3F">Gears not changing</a></li>
+              <li><a class="quick-msg" href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20my%20bike%20needs%20a%20full%20service.%20Can%20I%20bring%20my%20bike%20in%20today%3F">Needs a full service</a></li>
+          </ul>
+
+          <form class="message-form" action="https://wa.me/233244000001" method="get">
+            <label for="message">Something else? Describe the problem</label>
+            <textarea id="message" name="text" rows="4" required
+                      placeholder="For example: back wheel shakes when I ride"></textarea>
+            <button type="submit" class="btn btn-primary">Send on WhatsApp</button>
+          </form>
+          <p class="note">No WhatsApp? Call us on <a href="tel:+233322000000">0322&nbsp;000&nbsp;000</a> instead.</p>
+        </section>
 
       </div>
-    </section>
-
-    <!-- 10 Message Kwame (improvement: one-tap WhatsApp messages) -->
-    <section id="request" class="section section-alt" aria-labelledby="request-title">
-      <div class="container narrow">
-        <h2 id="request-title">Message Kwame in one tap</h2>
-        <p>Tap your problem and WhatsApp opens with the message already written. Just press send, and add a photo if you can.</p>
-        <ul class="quick-list">
-            <li><a class="quick-msg" href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20I%20have%20a%20flat%20tyre.%20Can%20I%20bring%20my%20bike%20in%20today%3F">Flat tyre or puncture</a></li>
-            <li><a class="quick-msg" href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20my%20chain%20is%20broken%20or%20slipping.%20Can%20I%20bring%20my%20bike%20in%20today%3F">Broken or slipping chain</a></li>
-            <li><a class="quick-msg" href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20my%20brakes%20are%20not%20working%20well.%20Can%20I%20bring%20my%20bike%20in%20today%3F">Brakes not working well</a></li>
-            <li><a class="quick-msg" href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20my%20gears%20are%20not%20changing%20properly.%20Can%20I%20bring%20my%20bike%20in%20today%3F">Gears not changing</a></li>
-            <li><a class="quick-msg" href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20my%20bike%20needs%20a%20full%20service.%20Can%20I%20bring%20my%20bike%20in%20today%3F">Needs a full service</a></li>
-        </ul>
-
-        <form class="message-form" action="https://wa.me/233244000001" method="get">
-          <label for="message">Something else? Describe the problem</label>
-          <textarea id="message" name="text" rows="4" required
-                    placeholder="For example: back wheel shakes when I ride"></textarea>
-          <button type="submit" class="btn btn-primary">Send on WhatsApp</button>
-        </form>
-        <p class="note">No WhatsApp? Call us on <a href="tel:+233322000000">0322&nbsp;000&nbsp;000</a> instead.</p>
-      </div>
-    </section>
+    </div>
 
   </main>
 

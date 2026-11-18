@@ -327,6 +327,12 @@ a:hover {
   border-block: 1px solid var(--color-border);
 }
 
+/* Two short sections sharing one band: stacked on phones, side by side on laptops */
+.section-pair {
+  display: grid;
+  gap: var(--space-6);
+}
+
 .section-intro {
   color: var(--color-muted);
 }
@@ -606,5 +612,10 @@ address p,
 @media (min-width: 64rem) {
   .service-list {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .section-pair {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
   }
 }

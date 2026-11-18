@@ -17,6 +17,7 @@
   --color-primary-dark: #962f09;   /* button hover */
   --color-on-primary: #ffffff;
   --color-accent: #1f4e8c;         /* blue: keyboard focus ring */
+  --color-focus-on-dark: #f7f6f3;  /* light focus ring for the dark footer */
   --color-border: #e0dcd5;
   --color-success: #1d7a46;
   --color-error: #b3261e;
@@ -504,6 +505,11 @@ address p {
 
 .site-footer a {
   color: var(--color-on-primary);
+}
+
+/* The blue ring is too dark on the footer, so use a light one here */
+.site-footer :focus-visible {
+  outline-color: var(--color-focus-on-dark);
 }
 
 /* ---------- 9. Wider screens ---------- */

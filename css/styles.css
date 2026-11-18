@@ -42,6 +42,7 @@
   --space-6: 3rem;     /* 48px */
   --tap-target: 2.75rem; /* 44px minimum for buttons and links */
   --header-height: 3.75rem; /* sticky header height */
+  --step-marker: 2rem;      /* numbered circles in How it works */
   --width-hero-text: 36rem; /* hero text stays on the dark left side on laptops */
 
 
@@ -348,6 +349,16 @@ a:hover {
   border-block: 1px solid var(--color-border);
 }
 
+/* Two columns inside one section: stacked on phones, side by side on laptops */
+.split {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.ticks + .note {
+  margin-top: var(--space-3);
+}
+
 .section-intro {
   color: var(--color-muted);
 }
@@ -406,7 +417,7 @@ a:hover {
   counter-increment: step;
   position: relative;
   padding-left: var(--space-6);
-  min-height: 2rem;
+  min-height: var(--step-marker);
 }
 
 .steps li::before {
@@ -414,8 +425,8 @@ a:hover {
   position: absolute;
   left: 0;
   top: -2px;
-  width: 2rem;
-  height: 2rem;
+  width: var(--step-marker);
+  height: var(--step-marker);
   display: grid;
   place-items: center;
   border-radius: 50%;
@@ -603,6 +614,33 @@ address p,
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* How it works: steps as cards, 2 per row on tablets */
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps li {
+    padding: var(--space-3);
+    padding-top: calc(var(--space-3) + var(--step-marker) + var(--space-2)); /* room for the circle */
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+
+  .steps li::before {
+    top: var(--space-3);
+    left: var(--space-3);
+  }
+
+  /* Find the workshop: contact details in two columns */
+  address {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-auto-flow: column;            /* fill down first: where on the left, how to contact on the right */
+    column-gap: var(--space-5);
+  }
+
     /* Menu: show the links in the header instead of a pop-up.
      script.js opens the menu at this width; without JavaScript the Menu
      button stays, so the links are never lost */
@@ -625,6 +663,25 @@ address p,
 
 /* Laptops and up: about 1024px */
 @media (min-width: 64rem) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  address {
+    column-gap: var(--space-6);        /* same gap as .split, so columns line up with Message Kwame */
+  }
+
+  .split--aside {
+    grid-template-columns: 1fr 2fr;   /* heading on the left, questions on the right */
+  }
+
+  /* How it works: all 4 steps in one row, read left to right */
+  .steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
   /* Hero: sharper photo, visible on the right; text kept on the dark left side */
   .hero {
     padding-block: calc(var(--space-6) * 2);

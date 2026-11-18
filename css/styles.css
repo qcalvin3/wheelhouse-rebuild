@@ -347,7 +347,7 @@ a:hover {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  overflow: hidden; /* keeps the card height consistent if a photo is missing */
+  overflow: hidden; /* clips the photo to the card's rounded corners */
 }
 
 .service-card p {

@@ -581,6 +581,25 @@ address p,
   .service-list {
     grid-template-columns: repeat(2, 1fr);
   }
+
+    /* Menu: show the links in the header instead of a pop-up.
+     script.js opens the menu at this width; without JavaScript the Menu
+     button stays, so the links are never lost */
+  .site-nav details[open] summary {
+    display: none;
+  }
+
+  .site-nav ul {
+    position: static;
+    display: flex;
+    gap: var(--space-1);
+    min-width: 0;
+    max-height: none;
+    padding: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+  }
 }
 
 /* Laptops and up: about 1024px */

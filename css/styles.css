@@ -449,6 +449,29 @@ address p {
   margin-bottom: var(--space-2);
 }
 
+/* Small outline icons (Tabler Icons, MIT licence). Styled once here instead of
+   repeating the same attributes on every <svg> in the HTML */
+.icon {
+  flex: none;
+  width: 1.25em;            /* scales with the text size */
+  height: 1.25em;
+  margin-top: 0.1em;        /* lines the icon up with the first line of text */
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  color: var(--color-primary);
+}
+
+/* Icon on the left, text on the right; long lines wrap under the text */
+address p,
+.hours {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+}
+
 /* One-tap WhatsApp messages (block 10, the improvement) */
 .quick-list {
   display: flex;

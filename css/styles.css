@@ -42,6 +42,7 @@
   --space-6: 3rem;     /* 48px */
   --tap-target: 2.75rem; /* 44px minimum for buttons and links */
   --header-height: 3.75rem; /* sticky header height */
+  --width-hero-text: 36rem; /* hero text stays on the dark left side on laptops */
 
 
   --radius: 6px;
@@ -246,10 +247,30 @@ a:hover {
 }
 
 /* ---------- 5. Hero: what, where, hours, call (blocks 2 and 3) ---------- */
+/* Photo behind the text. On phones a dark layer covers the whole photo;
+   on laptops it fades out on the right so the photo shows, while the text
+   stays on the fully dark left side. White text on the dark layer is at
+   least 6.7:1, even over the brightest part of the photo */
 .hero {
-  background: var(--color-surface);
-  padding-block: var(--space-5);
-  border-bottom: 1px solid var(--color-border);
+  --hero-shade: rgb(28 28 28 / 0.72);
+  padding-block: var(--space-6);
+  color: var(--color-on-primary);
+  background-color: var(--color-text);   /* shown while the photo loads */
+  background-image:
+    linear-gradient(var(--hero-shade), var(--hero-shade)),
+    url("../images/hero-small.webp");    /* 23 KB version for phones */
+  background-size: cover;
+  background-position: center;
+}
+
+.hero h1,
+.hero .address {
+  color: inherit;
+}
+
+/* Light focus ring on the dark photo, same as the footer */
+.hero :focus-visible {
+  outline-color: var(--color-focus-on-dark);
 }
 
 .hero-lead {
@@ -604,6 +625,18 @@ address p,
 
 /* Laptops and up: about 1024px */
 @media (min-width: 64rem) {
+  /* Hero: sharper photo, visible on the right; text kept on the dark left side */
+  .hero {
+    padding-block: calc(var(--space-6) * 2);
+    background-image:
+      linear-gradient(to right, var(--hero-shade) 60%, transparent 90%),
+      url("../images/hero-wide.webp");
+  }
+
+  .hero .container > * {
+    max-width: var(--width-hero-text);
+  }
+
   .service-list {
     grid-template-columns: repeat(3, 1fr);
   }

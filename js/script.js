@@ -1,4 +1,4 @@
-// Wheelhouse Bike Repair — script.js
+// Wheelhouse Bike Repair: script.js
 
 // === Menu: links in the header on wider screens; on phones a pop-up that
 //     closes after a link is chosen, on Escape, or when focus leaves ===

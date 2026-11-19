@@ -14,6 +14,8 @@ if (menu) {
     menu.open = wideScreen.matches;
   };
   syncMenuToScreen();
+  // Kept for the whole visit: on a one-page site there's no point where it
+  // needs removing, and it's what switches the menu if the screen is resized
   wideScreen.addEventListener('change', syncMenuToScreen);
 
   // Close after a link is chosen, so the menu doesn't cover the section
@@ -54,8 +56,8 @@ if (smsButton && messageBox) {
     if (!messageBox.reportValidity()) {
       return;
     }
-    // "?&body=" is the form both Android and iPhone accept
+    // Standard SMS link format (RFC 5724): sms:number?body=message
     const message = encodeURIComponent(messageBox.value.trim());
-    window.location.href = `sms:${smsButton.dataset.number}?&body=${message}`;
+    window.location.href = `sms:${smsButton.dataset.number}?body=${message}`;
   });
 }

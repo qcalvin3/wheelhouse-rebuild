@@ -44,8 +44,6 @@
   --header-height: 3.75rem; /* sticky header height */
   --step-marker: 2rem;      /* numbered circles in How it works */
   --width-hero-text: 36rem; /* hero text stays on the dark left side on laptops */
-
-
   --radius: 6px;
 }
 
@@ -215,6 +213,19 @@ a:hover {
 
 .site-nav summary::-webkit-details-marker {
   display: none;
+}
+
+/* Visible open/closed cue for sighted users, since the default marker is hidden.
+   Screen readers already announce "expanded" or "collapsed" for <summary>;
+   the "/ ''" part stops them reading the arrow out as well */
+.site-nav summary::after {
+  content: "\25BE";
+  content: "\25BE" / "";
+  margin-left: var(--space-1);
+}
+
+.site-nav details[open] > summary::after {
+  transform: rotate(180deg);
 }
 
 .site-nav ul {

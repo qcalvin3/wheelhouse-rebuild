@@ -1,5 +1,7 @@
 # EE01 write-up: Wheelhouse Bike Repair page rebuild
 
+> **Note:** this describes the page at the end of EE01. Two things have changed since, in EE02: the placeholder image was replaced with a photo of repair tools, and `js/script.js` now runs the menu and the text message (SMS) button. See the [EE02 write-up](../ee02/write-up.md).
+
 **Live page:** https://qcalvin3.github.io/wheelhouse-rebuild/
 **Original site (before):** [commit e0c6f94](https://github.com/qcalvin3/wheelhouse-rebuild/tree/e0c6f94)
 **Full write-ups:** [diagnosis](diagnosis.md) · [audit](audit.md) · [screenshots](evidence/)
@@ -90,9 +92,9 @@ Everything comes from CSS variables at the top of `css/styles.css`.
 - **W3C validator:** no errors or warnings. **Lighthouse:** 100 for Performance, Accessibility, Best Practices and SEO on mobile and desktop. **axe:** 0 problems.
 - **Keyboard:** Tab goes skip link, logo, Menu, Call, Call and WhatsApp buttons, questions, contact links, one-tap messages, form. A blue focus ring on every stop ([screenshot](evidence/11-focus-ring.png)).
 - **Contrast:** every text pair passes 4.5:1. **200% zoom:** nothing cut off, no sideways scroll.
-- **Image:** alt text is "Placeholder for a photo of Kwame repairing a bike in the workshop", so it is never read out as a real photo.
+- **Image:** alt text is "Placeholder for a photo of Kwame repairing a bike in the workshop", so it is never read out as a real photo. *(Replaced in EE02 with a photo of repair tools.)*
 - **Visual system:** no inline styles and no colours outside the variables.
 
 **What I fixed after auditing:** phone numbers could split across two lines (fixed with non-breaking spaces), two sizes were outside the system (now variables), and there was no tab icon (added).
 
-**What I left, and why:** a real photo of Kwame, his real phone numbers, and an exact map pin all need information from him. A live "Open now" sign needs JavaScript, which comes in the next module. `js/script.js` is the starter's placeholder for that module, so this page does not use it.
+**What I left, and why:** a real photo of Kwame, his real phone numbers, and an exact map pin all need information from him. A live "Open now" sign needs JavaScript, which comes in the next module. `js/script.js` is the starter's placeholder for that module, so this page does not use it. *(Since EE02 it runs the menu and the SMS button.)*

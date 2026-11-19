@@ -4,6 +4,8 @@ A rebuilt one-page website for Wheelhouse Bike Repair, Kwame's bike repair works
 
 **Live site:** https://qcalvin3.github.io/wheelhouse-rebuild/
 
+> **Not ready for real customers yet.** The photos are placeholders: their licences aren't confirmed, and the hero is AI-generated. The phone numbers and email are the brief's placeholders too. All of these need replacing with Kwame's own before the site is used for his business.
+
 **How to run it:** open the live site, or download the repo and open `index.html` in any browser. There is nothing to install or build.
 
 ## Lab write-ups
@@ -26,6 +28,5 @@ docs/ee02/          EE02 write-up, audit of Emmanuel's site and screenshots
 
 ## Notes
 
-- **Photos are placeholders.** They were found online and their licences aren't confirmed, and the hero is AI-generated. They should be replaced with Kwame's own photos before the site goes live for him.
 - **Icons:** [Tabler Icons](https://tabler.io/icons) (MIT licence).
 - **Original site, before the rebuild:** [commit e0c6f94](https://github.com/qcalvin3/wheelhouse-rebuild/tree/e0c6f94)

@@ -196,7 +196,7 @@ Neither audit considered them. Both assumed every customer can call or use Whats
 - **0244, not 0322:** 0322 is a Kumasi landline, which can't receive texts. 0244 is the mobile number Kwame already uses for WhatsApp.
 - **It works without JavaScript.** The SMS button needs the script to copy the message, so it stays hidden (`hidden` attribute) until the script shows it. If the script fails, the plain "Text us" links still open the SMS app on any phone.
 - **Same checks as WhatsApp:** an empty message shows the browser's "Please fill out this field" warning and goes nowhere.
-- **The link format** is `sms:+233244000001?&body=...`, which both Android and iPhone accept.
+- **The link format** is the standard one (RFC 5724): `sms:+233244000001?body=...`.
 - **No new styles.** It reuses the secondary button style from the hero's "WhatsApp us".
 
 **Verified on a real iPhone:** I typed "Back wheel shakes" on the live site and tapped "Send as a text (SMS)". Messages opened as a "Text Message · SMS" to +233 24 400 0001 with "Back wheel shakes" already in the box.

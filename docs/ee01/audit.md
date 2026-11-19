@@ -2,6 +2,8 @@
 
 [Back to README](../../README.md)
 
+> **Note:** this describes the page at the end of EE01. Two things have changed since, in EE02: the placeholder image was replaced with a photo of repair tools, and `js/script.js` now runs the menu and the text message (SMS) button. See the [EE02 write-up](../ee02/write-up.md).
+
 **How I checked:** the W3C Markup Validation Service and a stricter HTML checker (`html-validate`), Lighthouse on mobile and desktop, an automated accessibility check (axe-core) at 360px and 1280px, the W3C Easy Checks by hand (page title, headings, image text, contrast, keyboard focus, 200% zoom, form labels), every colour pair measured for contrast, and a search of the CSS for values that bypass the visual system.
 
 ### Results
@@ -15,7 +17,7 @@
 | Accessibility | Automated check (axe-core) | 0 violations at 360px and 1280px |
 | Overall | Lighthouse (mobile and desktop) | Performance 100, Accessibility 100, Best Practices 100, SEO 100 |
 | Accessibility | Page title | "Wheelhouse Bike Repair \| Adum, Kumasi": says what and where |
-| Accessibility | Image text | The one image has the alt text "Placeholder for a photo of Kwame repairing a bike in the workshop", so a screen reader never presents it as a real photo |
+| Accessibility | Image text | The one image has the alt text "Placeholder for a photo of Kwame repairing a bike in the workshop", so a screen reader never presents it as a real photo. *(EE02: replaced with a photo of repair tools, alt text "Bike crankset, chain and repair tools laid out on a workbench")* |
 | Accessibility | Contrast | Every text pair passes 4.5:1, lowest 4.9:1 (the tick marks); body text 15.8:1; orange links, prices and buttons 5.3:1 to 5.7:1 |
 | Accessibility | Keyboard | Tab order follows the page: skip link, logo, menu, call, both contact buttons, each question, each contact link, each one-tap message, the form. A visible blue focus ring on every stop (see [`evidence/11-focus-ring.png`](evidence/11-focus-ring.png)) |
 | Accessibility | Zoom and text resize | At 200% text size, nothing is cut off and there is no sideways scrolling |
@@ -39,7 +41,7 @@
 | Exact map pin or landmark | The site only knows "Shop 4, Adum Commercial Area", so the link searches that area | Ask Kwame for a nearby landmark or his exact Google Maps location |
 | Menu stays a "Menu" button on desktop | `<details>` works without JavaScript and suits phones, where most customers are. Showing the links in a row on desktop is low value for this brief | Show the links inline on wide screens in a later JavaScript or CSS pass |
 | A live "Open now / Closed" status | It would answer "can I bring it in now?" instantly, but it needs JavaScript, which this course covers in the next module | Add it in the Applied JavaScript module |
-| `js/script.js` is not used | This lab needs no JavaScript. The file is kept as the starter's placeholder for the Applied JavaScript module, so it is not linked from the page | Use it in that module |
+| `js/script.js` is not used | This lab needs no JavaScript. The file is kept as the starter's placeholder for the Applied JavaScript module, so it is not linked from the page | Use it in that module *(EE02: now linked; it runs the menu and the SMS button)* |
 | Some fixed pixel values remain | Borders (1px to 3px), the focus ring, icon sizes and maximum widths. These are fine details and layout limits, not text or spacing, so they sit outside the spacing scale on purpose | None needed |
 
 **Overall:** the five root causes from the diagnosis are fixed at the source: the page is built for phones first, ordered by what customers need, written in semantic HTML, finished (every link and button works), and styled from one visual system. What remains needs real information from Kwame rather than more code.

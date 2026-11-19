@@ -553,9 +553,18 @@ address p,
   resize: vertical;
 }
 
-.message-form .btn {
-  justify-self: start;
+/* WhatsApp and SMS buttons side by side, wrapping on small screens */
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
   margin-top: var(--space-2);
+}
+
+/* Keep the "hidden" attribute working on elements that set their own display,
+   like .btn (used by the SMS button until script.js shows it) */
+[hidden] {
+  display: none !important;
 }
 
 /* ---------- 8. Footer (block 11) ---------- */

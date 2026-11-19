@@ -38,3 +38,24 @@ if (menu) {
     }
   });
 }
+
+// === Text message (SMS) option ===
+// For riders without WhatsApp or mobile data, and Deaf riders who can't call.
+// The button stays hidden if this script doesn't run; the plain "Text us"
+// link under the form still works on any phone.
+const smsButton = document.querySelector('#send-sms');
+const messageBox = document.querySelector('#message');
+
+if (smsButton && messageBox) {
+  smsButton.hidden = false;
+
+  smsButton.addEventListener('click', () => {
+    // Same "please fill in this field" message as the WhatsApp button
+    if (!messageBox.reportValidity()) {
+      return;
+    }
+    // "?&body=" is the form both Android and iPhone accept
+    const message = encodeURIComponent(messageBox.value.trim());
+    window.location.href = `sms:${smsButton.dataset.number}?&body=${message}`;
+  });
+}

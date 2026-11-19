@@ -2,7 +2,7 @@
 
 [Back to README](../../README.md)
 
-> **Note:** this describes the page at the end of EE01. Two things have changed since, in EE02: the placeholder image was replaced with a photo of repair tools, and `js/script.js` now runs the menu and the text message (SMS) button. See the [EE02 write-up](../ee02/write-up.md).
+> **Note:** this describes the page at the end of EE01. The page has changed a lot since, in EE02 (photos, a desktop layout, menu links in the header, an SMS option and more). Some details below no longer match the current page, and the two most important (the placeholder image and the unused script) have a note in italics. See the [EE02 write-up](../ee02/write-up.md) for the current page.
 
 **How I checked:** the W3C Markup Validation Service and a stricter HTML checker (`html-validate`), Lighthouse on mobile and desktop, an automated accessibility check (axe-core) at 360px and 1280px, the W3C Easy Checks by hand (page title, headings, image text, contrast, keyboard focus, 200% zoom, form labels), every colour pair measured for contrast, and a search of the CSS for values that bypass the visual system.
 

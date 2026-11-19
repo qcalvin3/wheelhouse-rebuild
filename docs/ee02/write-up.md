@@ -246,3 +246,4 @@ Screenshots: [evidence/final-checks](evidence/final-checks/)
 | `28a9874` | Hero background photo with a dark layer |
 | `79f3510` | Desktop width used inside each section |
 | `287e9ad` | Further improvement: text message (SMS) option |
+| `0270cd8` and `fae50ad` | Fixes from the professional hygiene check |

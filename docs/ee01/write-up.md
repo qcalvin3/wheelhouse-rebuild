@@ -1,6 +1,6 @@
 # EE01 write-up: Wheelhouse Bike Repair page rebuild
 
-> **Note:** this describes the page at the end of EE01. Two things have changed since, in EE02: the placeholder image was replaced with a photo of repair tools, and `js/script.js` now runs the menu and the text message (SMS) button. See the [EE02 write-up](../ee02/write-up.md).
+> **Note:** this describes the page at the end of EE01. The page has changed a lot since, in EE02 (photos, a desktop layout, menu links in the header, an SMS option and more). Some details below no longer match the current page, and the two most important (the placeholder image and the unused script) have a note in italics. See the [EE02 write-up](../ee02/write-up.md) for the current page.
 
 **Live page:** https://qcalvin3.github.io/wheelhouse-rebuild/
 **Original site (before):** [commit e0c6f94](https://github.com/qcalvin3/wheelhouse-rebuild/tree/e0c6f94)

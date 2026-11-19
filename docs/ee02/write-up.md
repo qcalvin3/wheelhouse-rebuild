@@ -15,7 +15,7 @@ After all the changes, Lighthouse scores 100 for accessibility on mobile and des
 
 I kept Emmanuel's order, because I agree with his ranking: the first two hide what the user is focused on, the third makes focus hard to see in one place, and the fourth has a workaround (keyboard users can still reach "Find us" with Tab).
 
-Each fix has before and after screenshots in [evidence/fixes-from-emma-audit](evidence/fixes-from-emma-audit/). I verified the fixes in Chrome on Windows.
+Each fix has before and after screenshots in [evidence/fixes-from-emma-audit](evidence/fixes-from-emma-audit/). I verified the fixes in Chrome and Firefox on Windows.
 
 ### Fix 1: the sticky header hid focused buttons and covered headings
 
@@ -226,7 +226,6 @@ Screenshots: [evidence/final-checks](evidence/final-checks/)
 
 ### What I didn't test
 
-- **Firefox:** Emmanuel found the barriers in Firefox; I verified my fixes in Chrome.
 - **NVDA, TalkBack and VoiceOver on iPhone:** I didn't repeat screen reader testing after the changes.
 - **SMS on Android:** I only tested on an iPhone.
 - **Real users:** I didn't test with a Deaf rider, a rider on a basic phone, or anyone using voice control.

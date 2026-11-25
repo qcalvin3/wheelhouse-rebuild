@@ -26,6 +26,7 @@ Each fix has before and after screenshots in [evidence/fixes-from-emma-audit](ev
 **Cause:** The header uses `position: sticky`, so it stays on top of the page. When the browser scrolls a focused element or a jump target into view, it lines it up with the very top of the window, which is exactly where the 60px header sits. The browser didn't know the header was there.
 
 **What changed** (commit `f0ed512`):
+
 - Added `scroll-padding-top` to `html`. It tells the browser to leave a gap at the top whenever it scrolls something into view.
 - Stored the header height in one variable, `--header-height`, and used it for both the header's height and the gap, so the two can't drift apart if the header changes later.
 
@@ -33,8 +34,8 @@ Each fix has before and after screenshots in [evidence/fixes-from-emma-audit](ev
 
 **Verified:** I repeated Emmanuel's steps. "Brakes not working well" now shows fully below the header with its focus ring. Menu links and the skip link land with the heading visible.
 
-| Before | After |
-|---|---|
+| Before                                                                                              | After                                                                                                                     |
+| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | ![Focused button hidden behind the sticky header](evidence/fixes-from-emma-audit/fix-01-before.png) | ![Focused Brakes not working well button fully visible below the header](evidence/fixes-from-emma-audit/fix-01-after.png) |
 
 ### Fix 2: the menu stayed open after choosing a link
@@ -46,6 +47,7 @@ Each fix has before and after screenshots in [evidence/fixes-from-emma-audit](ev
 **Cause:** The menu is a native `<details>` element. It only closes when you click its summary again. It has no built-in "close when a link is chosen" and no Escape key behaviour, so it was doing exactly what `<details>` does.
 
 **What changed** (commit `02cbad8`): I added a small `js/script.js` with three listeners on the menu:
+
 - **choosing a link** closes the menu
 - **Escape** closes it and puts focus back on "Menu", so keyboard users don't get lost
 - **focus leaving the menu** (tabbing past the last link) closes it
@@ -54,8 +56,8 @@ Each fix has before and after screenshots in [evidence/fixes-from-emma-audit](ev
 
 **Verified:** Choosing a link, pressing Escape and tabbing out all close the menu. After Escape, focus returns to "Menu".
 
-| Before | After |
-|---|---|
+| Before                                                                                                           | After                                                                                              |
+| ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | ![Menu still open over Common questions after choosing a link](evidence/fixes-from-emma-audit/fix-02-before.png) | ![Page lands on the section with the menu closed](evidence/fixes-from-emma-audit/fix-02-after.png) |
 
 ### Fix 3: the focus ring was too faint on the dark footer
@@ -67,6 +69,7 @@ Each fix has before and after screenshots in [evidence/fixes-from-emma-audit](ev
 **Cause:** I used one focus colour for the whole site and chose it for the light backgrounds, where it passes at 7:1 or better. I never checked it against the one dark area, the footer.
 
 **What changed** (commit `d56d6a3`):
+
 - Added a second focus colour for dark backgrounds, `--color-focus-on-dark: #f7f6f3` (the page's own off-white).
 - Applied it only inside the footer: `.site-footer :focus-visible { outline-color: var(--color-focus-on-dark); }`
 
@@ -74,8 +77,8 @@ Each fix has before and after screenshots in [evidence/fixes-from-emma-audit](ev
 
 **Verified:** The footer ring is now clearly visible. `#f7f6f3` on `#1c1c1c` measures **15.76:1**, well above 3:1. I reused the same light ring later on the dark hero.
 
-| Before | After |
-|---|---|
+| Before                                                                                                     | After                                                                                                 |
+| ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | ![Faint dark blue focus ring on the footer phone number](evidence/fixes-from-emma-audit/fix-03-before.png) | ![Clear light focus ring on the footer phone number](evidence/fixes-from-emma-audit/fix-03-after.png) |
 
 ![WebAIM Contrast Checker showing 15.76:1 for #F7F6F3 on #1C1C1C](evidence/fixes-from-emma-audit/fix-03-contrast.png)
@@ -89,6 +92,7 @@ Each fix has before and after screenshots in [evidence/fixes-from-emma-audit](ev
 **Cause:** Two things together. At 400% zoom the page area is only about 200px tall, and the sticky header took up half of it. The menu panel sits inside that sticky header, so scrolling the page never moved it, and the panel had no scrolling of its own.
 
 **What changed** (commit `7611f60`):
+
 - The menu panel now has a maximum height of the screen minus the header (`max-height: calc(100vh - var(--header-height) - var(--space-3))`) and scrolls inside itself (`overflow-y: auto`).
 - On very short screens, 480px tall or less (`@media (max-height: 30rem)`), the header stops being sticky and scrolls away with the page, so it no longer covers half the screen.
 
@@ -96,8 +100,8 @@ Each fix has before and after screenshots in [evidence/fixes-from-emma-audit](ev
 
 **Verified:** At 400% zoom, the menu shows a scrollbar and "Find us" can be reached. The header scrolls away on short screens and stays sticky at 100%.
 
-| Before | After |
-|---|---|
+| Before                                                                                        | After                                                                                          |
+| --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | ![Menu at 400% zoom showing only two links](evidence/fixes-from-emma-audit/fix-04-before.png) | ![Menu at 400% zoom scrolled to show Find us](evidence/fixes-from-emma-audit/fix-04-after.png) |
 
 ## 2. Issues I found myself
@@ -117,8 +121,8 @@ My own diagnosis said images would help, and then I didn't add any. Someone who 
 - **Light on mobile data:** every photo is compressed WebP, between 15 and 54 KB, with `loading="lazy"` and `width` and `height` set so the page doesn't jump while photos load.
 - **Short alt text** describing what each photo shows.
 
-| Before | After |
-|---|---|
+| Before                                                                   | After                                                                              |
+| ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
 | ![Services without photos](evidence/own-issues/own-03-photos-before.png) | ![Services with a photo on each card](evidence/own-issues/own-03-photos-after.png) |
 
 #### Icons in "Find the workshop" (commit `dea08d7`)
@@ -133,8 +137,8 @@ From tablet width up (768px), the four links sit in the header and the Menu butt
 - **Without JavaScript,** the Menu button stays, so the links are never lost.
 - At 400% zoom the page counts as narrow, so it gets the pop-up, which keeps Fix 4 working.
 
-| Before | After |
-|---|---|
+| Before                                                                                             | After                                                                                           |
+| -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | ![Desktop header with links hidden behind Menu](evidence/own-issues/own-01-desktop-nav-before.png) | ![Desktop header with the four links showing](evidence/own-issues/own-01-desktop-nav-after.png) |
 
 #### Using the desktop width (commits `28a9874` and `79f3510`)
@@ -152,8 +156,8 @@ Each section keeps its own band and background, so they still read as separate s
 
 **Hero contrast:** WAVE can't measure contrast for text on a photo, so I checked it myself. A dark layer (`rgb(28 28 28 / 0.72)`) covers the photo behind the text. Even over a pure white pixel, the result is about `#5b5b5b`, and white text on that is **6.7:1**, above the 4.5:1 minimum. On laptops, the layer only fades out to the right of the text, so the text is always on the dark part. The hero also uses the light focus ring from Fix 3. Phones download a 23 KB version of the photo; only wider screens load the 55 KB one.
 
-| Before | After |
-|---|---|
+| Before                                                                                       | After                                                                                      |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | ![Full page before the layout changes](evidence/own-issues/own-02-desktop-layout-before.png) | ![Full page after the layout changes](evidence/own-issues/own-02-desktop-layout-after.png) |
 
 ### Honest photos
@@ -169,7 +173,6 @@ The trainer said real photos would build the trust Kwame wants. I don't have rea
 
 **Merging sections side by side.** I first put "Find the workshop" and "Message Kwame" into one shared band, side by side (commit `c0858e5`). On laptops it filled the space, but the two sections lost their separate backgrounds and stopped reading as two things. That goes against proximity: things that sit together look like they belong together. I reverted it (commit `2b11e0e`) and instead used the width **inside** each section, keeping their own bands.
 
-
 ## 4. Where I disagree with the tools
 
 WAVE gave 8 alerts. Alerts are things to check, not failures, and I checked them:
@@ -182,17 +185,20 @@ I also don't treat WAVE's "0 contrast errors" as covering the hero, because WAVE
 ## 5. Further improvement: a text message (SMS) option
 
 **Who it's for:** Every way to reach Kwame needed either a voice call or WhatsApp, and WhatsApp needs mobile data. That left out:
+
 - riders on a basic phone, or out of data, which is common in Kumasi
 - **Deaf and hard-of-hearing riders,** who can't use the Call button and may have no data
 
 Neither audit considered them. Both assumed every customer can call or use WhatsApp.
 
 **What I built** (commit `287e9ad`):
+
 - **Find the workshop** has a new line: "Text (SMS): 0244 000 001", with an icon.
 - **Message Kwame** has a second button, **"Send as a text (SMS)"**, beside "Send on WhatsApp". It takes what the rider typed and opens their messaging app with Kwame's number and the message already filled in.
 - **The note under the form** now reads: "No WhatsApp or no mobile data? Text us on 0244 000 001 from any phone, or call 0322 000 000."
 
 **Decisions I can explain:**
+
 - **0244, not 0322:** 0322 is a Kumasi landline, which can't receive texts. 0244 is the mobile number Kwame already uses for WhatsApp.
 - **It works without JavaScript.** The SMS button needs the script to copy the message, so it stays hidden (`hidden` attribute) until the script shows it. If the script fails, the plain "Text us" links still open the SMS app on any phone.
 - **Same checks as WhatsApp:** an empty message shows the browser's "Please fill out this field" warning and goes nowhere.
@@ -201,22 +207,22 @@ Neither audit considered them. Both assumed every customer can call or use Whats
 
 **Verified on a real iPhone:** I typed "Back wheel shakes" on the live site and tapped "Send as a text (SMS)". Messages opened as a "Text Message · SMS" to +233 24 400 0001 with "Back wheel shakes" already in the box.
 
-| Before | After |
-|---|---|
+| Before                                                                                       | After                                                                                                               |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | ![Contact options with only WhatsApp or a call](evidence/improvement/improvement-before.png) | ![New SMS line in Find the workshop and the Send as a text button](evidence/improvement/improvement-after-page.png) |
 
-| On the site (iPhone) | Messages app opened |
-|---|---|
+| On the site (iPhone)                                                                                                   | Messages app opened                                                                                          |
+| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | ![iPhone showing a typed message and the Send as a text button](evidence/improvement/improvement-after-phone-page.png) | ![iPhone Messages with the number and message filled in](evidence/improvement/improvement-after-sms-app.png) |
 
 ## 6. Final checks
 
 Run on the live site after all the changes:
 
-| Check | Performance | Accessibility | Best practices | SEO |
-|---|---|---|---|---|
-| Lighthouse, mobile | 97 | 100 | 100 | 100 |
-| Lighthouse, desktop | 100 | 100 | 100 | 100 |
+| Check               | Performance | Accessibility | Best practices | SEO |
+| ------------------- | ----------- | ------------- | -------------- | --- |
+| Lighthouse, mobile  | 97          | 100           | 100            | 100 |
+| Lighthouse, desktop | 100         | 100           | 100            | 100 |
 
 **WAVE:** 0 errors, 0 contrast errors, 8 alerts (explained in section 4), AIM score 9.8 / 10.
 
@@ -233,17 +239,17 @@ Screenshots: [evidence/final-checks](evidence/final-checks/)
 
 ## 7. Main commits
 
-| Commit | Change |
-|---|---|
-| `f0ed512` | Fix 1: scroll padding so the sticky header never hides focus |
-| `02cbad8` | Fix 2: close the menu after a link, on Escape, or when focus leaves |
-| `d56d6a3` | Fix 3: light focus ring on the dark footer |
-| `7611f60` | Fix 4: menu scrolls, header unsticks on very short screens |
-| `759efd8` | Photos on service cards, placeholder replaced |
-| `dea08d7` | Icons in Find the workshop |
-| `4dc6b7f` | Menu links shown in the header on tablets and up |
-| `c0858e5` and `2b11e0e` | Side-by-side sections tried, then reverted |
-| `28a9874` | Hero background photo with a dark layer |
-| `79f3510` | Desktop width used inside each section |
-| `287e9ad` | Further improvement: text message (SMS) option |
-| `0270cd8` and `fae50ad` | Fixes from the professional hygiene check |
+| Commit                  | Change                                                              |
+| ----------------------- | ------------------------------------------------------------------- |
+| `f0ed512`               | Fix 1: scroll padding so the sticky header never hides focus        |
+| `02cbad8`               | Fix 2: close the menu after a link, on Escape, or when focus leaves |
+| `d56d6a3`               | Fix 3: light focus ring on the dark footer                          |
+| `7611f60`               | Fix 4: menu scrolls, header unsticks on very short screens          |
+| `759efd8`               | Photos on service cards, placeholder replaced                       |
+| `dea08d7`               | Icons in Find the workshop                                          |
+| `4dc6b7f`               | Menu links shown in the header on tablets and up                    |
+| `c0858e5` and `2b11e0e` | Side-by-side sections tried, then reverted                          |
+| `28a9874`               | Hero background photo with a dark layer                             |
+| `79f3510`               | Desktop width used inside each section                              |
+| `287e9ad`               | Further improvement: text message (SMS) option                      |
+| `0270cd8` and `fae50ad` | Fixes from the professional hygiene check                           |

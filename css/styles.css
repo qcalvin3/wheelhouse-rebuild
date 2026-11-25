@@ -10,37 +10,37 @@
   /* Colour roles: Charcoal and safety orange */
   --color-bg: #f7f6f3;
   --color-surface: #ffffff;
-  --color-primary-soft: #f3ece6;   /* warm band behind the trust section */
+  --color-primary-soft: #f3ece6; /* warm band behind the trust section */
   --color-text: #1c1c1c;
   --color-muted: #505050;
-  --color-primary: #b93a0b;        /* safety orange: Call button, links, prices */
-  --color-primary-dark: #962f09;   /* button hover */
+  --color-primary: #b93a0b; /* safety orange: Call button, links, prices */
+  --color-primary-dark: #962f09; /* button hover */
   --color-on-primary: #ffffff;
-  --color-accent: #1f4e8c;         /* blue: keyboard focus ring */
-  --color-focus-on-dark: #f7f6f3;  /* light focus ring for dark areas: footer and hero */
+  --color-accent: #1f4e8c; /* blue: keyboard focus ring */
+  --color-focus-on-dark: #f7f6f3; /* light focus ring for dark areas: footer and hero */
   --color-border: #e0dcd5;
 
   /* Type */
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-size-small: 0.875rem;  /* 14px */
-  --font-size-base: 1rem;       /* 16px */
-  --font-size-lead: 1.1rem;     /* 18px: hero intro and prices */
-  --font-size-h3: 1.2rem;       /* 19px */
-  --font-size-h2: 1.44rem;      /* 23px */
+  --font-size-small: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lead: 1.1rem; /* 18px: hero intro and prices */
+  --font-size-h3: 1.2rem; /* 19px */
+  --font-size-h2: 1.44rem; /* 23px */
   --font-size-h1: clamp(1.75rem, 1.2rem + 2.5vw, 2.5rem); /* 28px to 40px */
   --line-height-body: 1.5;
   --line-height-heading: 1.2;
 
   /* Spacing */
-  --space-1: 0.25rem;  /* 4px */
-  --space-2: 0.5rem;   /* 8px */
-  --space-3: 1rem;     /* 16px */
-  --space-4: 1.5rem;   /* 24px */
-  --space-5: 2rem;     /* 32px */
-  --space-6: 3rem;     /* 48px */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 1rem; /* 16px */
+  --space-4: 1.5rem; /* 24px */
+  --space-5: 2rem; /* 32px */
+  --space-6: 3rem; /* 48px */
   --tap-target: 2.75rem; /* 44px minimum for buttons and links */
   --header-height: 3.75rem; /* sticky header height */
-  --step-marker: 2rem;      /* numbered circles in How it works */
+  --step-marker: 2rem; /* numbered circles in How it works */
   --width-hero-text: 36rem; /* hero text stays on the dark left side on laptops */
   --radius: 6px;
 }
@@ -51,7 +51,6 @@
 *::after {
   box-sizing: border-box;
 }
-
 
 /* Keep the sticky header from covering focused items and link targets */
 html {
@@ -74,9 +73,16 @@ h3 {
   margin: 0 0 var(--space-3);
 }
 
-h1 { font-size: var(--font-size-h1); }
-h2 { font-size: var(--font-size-h2); }
-h3 { font-size: var(--font-size-h3); margin-bottom: var(--space-2); }
+h1 {
+  font-size: var(--font-size-h1);
+}
+h2 {
+  font-size: var(--font-size-h2);
+}
+h3 {
+  font-size: var(--font-size-h3);
+  margin-bottom: var(--space-2);
+}
 
 p {
   margin: 0 0 var(--space-3);
@@ -234,7 +240,9 @@ a:hover {
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   box-shadow: 0 8px 24px rgb(28 28 28 / 0.12);
-  max-height: calc(100vh - var(--header-height) - var(--space-3)); /* never taller than the screen below the header */
+  max-height: calc(
+    100vh - var(--header-height) - var(--space-3)
+  ); /* never taller than the screen below the header */
   overflow-y: auto; /* scroll inside the menu if it is too long */
 }
 
@@ -261,10 +269,10 @@ a:hover {
   --hero-shade: rgb(28 28 28 / 0.72);
   padding-block: var(--space-6);
   color: var(--color-on-primary);
-  background-color: var(--color-text);   /* shown while the photo loads */
+  background-color: var(--color-text); /* shown while the photo loads */
   background-image:
     linear-gradient(var(--hero-shade), var(--hero-shade)),
-    url("../images/hero-small.webp");    /* 23 KB version for phones */
+    url("../images/hero-small.webp"); /* 23 KB version for phones */
   background-size: cover;
   background-position: center;
 }
@@ -286,7 +294,6 @@ a:hover {
 .hours {
   margin-bottom: var(--space-3);
 }
-
 
 .actions {
   display: grid;
@@ -392,16 +399,16 @@ a:hover {
 }
 
 .service-photo {
-  order: -1;                                        /* move it to the top visually */
-  width: calc(100% + 2 * var(--space-3));           /* stretch past the card padding */
+  order: -1; /* move it to the top visually */
+  width: calc(100% + 2 * var(--space-3)); /* stretch past the card padding */
   max-width: none;
   margin: calc(-1 * var(--space-3)) calc(-1 * var(--space-3)) var(--space-3);
-  aspect-ratio: 3 / 2;                              /* every photo the same shape */
-  object-fit: cover;                                /* crop, never squash */
+  aspect-ratio: 3 / 2; /* every photo the same shape */
+  object-fit: cover; /* crop, never squash */
 }
 
 .price {
-  margin-top: auto;     /* keeps prices lined up at the bottom of each card */
+  margin-top: auto; /* keeps prices lined up at the bottom of each card */
   margin-bottom: 0;
   color: var(--color-primary);
   font-size: var(--font-size-lead);
@@ -490,9 +497,9 @@ address p {
    repeating the same attributes on every <svg> in the HTML */
 .icon {
   flex: none;
-  width: 1.25em;            /* scales with the text size */
+  width: 1.25em; /* scales with the text size */
   height: 1.25em;
-  margin-top: 0.1em;        /* lines the icon up with the first line of text */
+  margin-top: 0.1em; /* lines the icon up with the first line of text */
   fill: none;
   stroke: currentColor;
   stroke-width: 2;
@@ -552,7 +559,7 @@ address p,
 .message-form textarea {
   width: 100%;
   padding: var(--space-2) var(--space-3);
-  border: 2px solid var(--color-muted);   /* 3:1 or better, so the box edge is visible */
+  border: 2px solid var(--color-muted); /* 3:1 or better, so the box edge is visible */
   border-radius: var(--radius);
   font: inherit;
   resize: vertical;
@@ -635,7 +642,9 @@ address p,
 
   .steps li {
     padding: var(--space-3);
-    padding-top: calc(var(--space-3) + var(--step-marker) + var(--space-2)); /* room for the circle */
+    padding-top: calc(
+      var(--space-3) + var(--step-marker) + var(--space-2)
+    ); /* room for the circle */
     background: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
@@ -651,11 +660,11 @@ address p,
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, auto);
-    grid-auto-flow: column;            /* fill down first: where on the left, how to contact on the right */
+    grid-auto-flow: column; /* fill down first: where on the left, how to contact on the right */
     column-gap: var(--space-5);
   }
 
-    /* Menu: show the links in the header instead of a pop-up.
+  /* Menu: show the links in the header instead of a pop-up.
      script.js opens the menu at this width; without JavaScript the Menu
      button stays, so the links are never lost */
   .site-nav details[open] summary {
@@ -684,11 +693,13 @@ address p,
   }
 
   address {
-    column-gap: var(--space-6);        /* same gap as .split, so columns line up with Message Kwame */
+    column-gap: var(
+      --space-6
+    ); /* same gap as .split, so columns line up with Message Kwame */
   }
 
   .split--aside {
-    grid-template-columns: 1fr 2fr;   /* heading on the left, questions on the right */
+    grid-template-columns: 1fr 2fr; /* heading on the left, questions on the right */
   }
 
   /* How it works: all 4 steps in one row, read left to right */

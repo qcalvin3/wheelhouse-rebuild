@@ -1,250 +1,539 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Wheelhouse Bike Repair | Adum, Kumasi</title>
-  <meta name="description" content="Bike repairs in Adum, Kumasi. Flats, chains, brakes and full servicing, most done the same day. Call or WhatsApp Kwame.">
-  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wheelhouse Bike Repair | Adum, Kumasi</title>
+    <meta
+      name="description"
+      content="Bike repairs in Adum, Kumasi. Flats, chains, brakes and full servicing, most done the same day. Call or WhatsApp Kwame."
+    />
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-  <a class="skip-link" href="#main">Skip to main content</a>
+    <!-- 01 Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="#main">Wheelhouse</a>
 
-  <!-- 01 Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="#main">Wheelhouse</a>
-
-      <nav class="site-nav" aria-label="Main">
-        <details>
-          <summary>Menu</summary>
-          <ul>
-            <li><a href="#services">Services &amp; prices</a></li>
-            <li><a href="#how-it-works">How it works</a></li>
-            <li><a href="#questions">Questions</a></li>
-            <li><a href="#find-us">Find us</a></li>
-          </ul>
-        </details>
-      </nav>
-
-      <a class="btn btn-primary btn-small" href="tel:+233322000000">Call</a>
-    </div>
-  </header>
-
-  <main id="main">
-
-    <!-- 02 + 03 What and where, opening hours, call -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container">
-        <h1 id="hero-title">Bike repairs in Adum, Kumasi</h1>
-        <p class="hero-lead">Flats, broken chains, brakes, gears and full services. Most repairs are done the same day.</p>
-
-        <p class="hours"><strong>Open Monday to Saturday, 8am to 5:30pm</strong></p>
-
-        <div class="actions">
-          <a class="btn btn-primary" href="tel:+233322000000">Call&nbsp;0322&nbsp;000&nbsp;000</a>
-          <a class="btn btn-secondary" href="https://wa.me/233244000001">WhatsApp us</a>
-        </div>
-
-        <p class="address">Shop 4, Adum Commercial Area · Walk-ins welcome</p>
-      </div>
-    </section>
-
-    <!-- 04 Why riders trust Wheelhouse -->
-    <section id="trust" class="trust" aria-labelledby="trust-title">
-      <div class="container trust-inner">
-        <div>
-          <h2 id="trust-title">Why riders trust Wheelhouse</h2>
-          <ul class="ticks">
-            <li>Kwame repairs or checks every bike personally</li>
-            <li>Fixing bikes in Kumasi since 2019</li>
-            <li>We agree the price with you before any work starts</li>
-          </ul>
-        </div>
-        <!-- No loading="lazy": this photo is near the top, so it should load straight away -->
-        <img class="trust-photo"
-             src="images/workshop.webp"
-             alt="Bike crankset, chain and repair tools laid out on a workbench"
-             width="720" height="480">
-      </div>
-    </section>
-
-    <!-- 05 Services and prices -->
-    <section id="services" class="section" aria-labelledby="services-title">
-      <div class="container">
-        <h2 id="services-title">Services and prices</h2>
-        <p class="section-intro">We fix all types of bicycles, from quick tune-ups to full rebuilds.</p>
-        <ul class="service-list">
-          <li class="service-card">
-            <h3>Tyre and tube replacement</h3>
-            <img class="service-photo" src="images/tyre.webp" alt="Bike tyres, an inner tube and repair tools on a workbench" width="373" height="249" loading="lazy">
-            <p>Front or rear tyre and tube. We carry most common sizes in stock.</p>
-            <p class="price">From GH₵ 60</p>
-          </li>
-          <li class="service-card">
-            <h3>Basic tune-up</h3>
-            <img class="service-photo" src="images/tune-up.webp" alt="Mechanic in gloves servicing the chain and crank of a bike" width="656" height="437" loading="lazy">
-            <p>Brake adjustment, gear indexing, tyre pressure check and general inspection. Most bikes done in under an hour.</p>
-            <p class="price">From GH₵ 80</p>
-          </li>
-          <li class="service-card">
-            <h3>Brake overhaul</h3>
-            <img class="service-photo" src="images/brakes.webp" alt="Gloved hands adjusting a bike brake on the front wheel" width="720" height="480" loading="lazy">
-            <p>Brake cable and pad replacement, lever adjustment and bleed for hydraulic systems.</p>
-            <p class="price">From GH₵ 120</p>
-          </li>
-          <li class="service-card">
-            <h3>Gear system overhaul</h3>
-            <img class="service-photo" src="images/gears.webp" alt="Close-up of the rear gears and chain on a bike" width="620" height="413" loading="lazy">
-            <p>Derailleur alignment, cable replacement, chain and cassette inspection. Includes a test ride.</p>
-            <p class="price">From GH₵ 150</p>
-          </li>
-          <li class="service-card">
-            <h3>Full bike rebuild</h3>
-            <img class="service-photo" src="images/rebuild.webp" alt="Every part of a bike laid out separately on the floor" width="720" height="480" loading="lazy">
-            <p>Complete strip-down, clean, grease and rebuild. Best for bikes that have not been serviced in years.</p>
-            <p class="price">From GH₵ 350</p>
-          </li>
-          <li class="service-card">
-            <h3>Custom builds</h3>
-            <img class="service-photo" src="images/custom.webp" alt="Bare bike frame clamped on a workbench with a spirit level" width="480" height="320" loading="lazy">
-            <p>Building a bike from scratch or upgrading parts. Get in touch to discuss what you have in mind.</p>
-            <p class="price">Ask for a quote</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 06 How it works -->
-    <section id="how-it-works" class="section section-alt" aria-labelledby="how-title">
-      <div class="container">
-        <h2 id="how-title">How it works</h2>
-        <ol class="steps">
-          <li>Bring your bike in any time we are open. No appointment needed.</li>
-          <li>Kwame inspects it and calls or messages you with the problem and the price.</li>
-          <li>You approve. Nothing happens without your go-ahead.</li>
-          <li>We fix it, and let you know when it is ready to collect.</li>
-        </ol>
-        <p class="note">Bigger repairs that need the bike overnight have a storage fee of GH₵ 10 per day.</p>
-      </div>
-    </section>
-
-    <!-- 07 Questions -->
-    <section id="questions" class="section" aria-labelledby="questions-title">
-      <div class="container split split--aside">
-        <div>
-          <h2 id="questions-title">Common questions</h2>
-          <p class="section-intro">Quick answers to what riders ask Kwame most.</p>
-        </div>
-
-        <div>
-          <details class="faq">
-            <summary>How long will my repair take?</summary>
-            <p>Most basic repairs and tune-ups are done the same day, usually within an hour or two. Bigger jobs like gear overhauls or full rebuilds may need the bike overnight or for a couple of days. We will give you an honest estimate when you drop it off.</p>
+        <nav class="site-nav" aria-label="Main">
+          <details>
+            <summary>Menu</summary>
+            <ul>
+              <li><a href="#services">Services &amp; prices</a></li>
+              <li><a href="#how-it-works">How it works</a></li>
+              <li><a href="#questions">Questions</a></li>
+              <li><a href="#find-us">Find us</a></li>
+            </ul>
           </details>
+        </nav>
 
-          <details class="faq">
-            <summary>Do I need to book in advance?</summary>
-            <p>No. Walk-ins are welcome during opening hours. For a large or urgent job, call ahead so we can make sure we have the right parts in stock.</p>
-          </details>
-
-          <details class="faq">
-            <summary>What types of bike do you work on?</summary>
-            <p>All types: road, mountain, hybrid, BMX and kids' bikes, and most major brands. If you have something unusual, get in touch first and we will tell you if we can handle it.</p>
-          </details>
-        </div>
+        <a class="btn btn-primary btn-small" href="tel:+233322000000">Call</a>
       </div>
-    </section>
+    </header>
 
-    <!-- 08 About Kwame -->
-    <section id="about" class="section section-alt" aria-labelledby="about-title">
-      <div class="container split">
-        <div>
-          <h2 id="about-title">About Kwame and Wheelhouse</h2>
-          <p>Kwame opened Wheelhouse in 2019 after years of fixing bikes for friends and neighbours out of his yard. The workshop now handles everything from kids' bikes to high-end road and mountain bikes, and every repair is done by Kwame or under his direct supervision.</p>
+    <main id="main">
+      <!-- 02 + 03 What and where, opening hours, call -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container">
+          <h1 id="hero-title">Bike repairs in Adum, Kumasi</h1>
+          <p class="hero-lead">
+            Flats, broken chains, brakes, gears and full services. Most repairs
+            are done the same day.
+          </p>
+
+          <p class="hours">
+            <strong>Open Monday to Saturday, 8am to 5:30pm</strong>
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="tel:+233322000000"
+              >Call&nbsp;0322&nbsp;000&nbsp;000</a
+            >
+            <a class="btn btn-secondary" href="https://wa.me/233244000001"
+              >WhatsApp us</a
+            >
+          </div>
+
+          <p class="address">Shop 4, Adum Commercial Area · Walk-ins welcome</p>
         </div>
+      </section>
 
-        <div>
-          <h3>Also in stock</h3>
-          <ul class="ticks">
-            <li>Lights</li>
-            <li>Helmets</li>
-            <li>Locks</li>
-            <li>Pumps</li>
-            <li>Basic spare parts</li>
+      <!-- 04 Why riders trust Wheelhouse -->
+      <section id="trust" class="trust" aria-labelledby="trust-title">
+        <div class="container trust-inner">
+          <div>
+            <h2 id="trust-title">Why riders trust Wheelhouse</h2>
+            <ul class="ticks">
+              <li>Kwame repairs or checks every bike personally</li>
+              <li>Fixing bikes in Kumasi since 2019</li>
+              <li>We agree the price with you before any work starts</li>
+            </ul>
+          </div>
+          <!-- No loading="lazy": this photo is near the top, so it should load straight away -->
+          <img
+            class="trust-photo"
+            src="images/workshop.webp"
+            alt="Bike crankset, chain and repair tools laid out on a workbench"
+            width="720"
+            height="480"
+          />
+        </div>
+      </section>
+
+      <!-- 05 Services and prices -->
+      <section id="services" class="section" aria-labelledby="services-title">
+        <div class="container">
+          <h2 id="services-title">Services and prices</h2>
+          <p class="section-intro">
+            We fix all types of bicycles, from quick tune-ups to full rebuilds.
+          </p>
+          <ul class="service-list">
+            <li class="service-card">
+              <h3>Tyre and tube replacement</h3>
+              <img
+                class="service-photo"
+                src="images/tyre.webp"
+                alt="Bike tyres, an inner tube and repair tools on a workbench"
+                width="373"
+                height="249"
+                loading="lazy"
+              />
+              <p>
+                Front or rear tyre and tube. We carry most common sizes in
+                stock.
+              </p>
+              <p class="price">From GH₵ 60</p>
+            </li>
+            <li class="service-card">
+              <h3>Basic tune-up</h3>
+              <img
+                class="service-photo"
+                src="images/tune-up.webp"
+                alt="Mechanic in gloves servicing the chain and crank of a bike"
+                width="656"
+                height="437"
+                loading="lazy"
+              />
+              <p>
+                Brake adjustment, gear indexing, tyre pressure check and general
+                inspection. Most bikes done in under an hour.
+              </p>
+              <p class="price">From GH₵ 80</p>
+            </li>
+            <li class="service-card">
+              <h3>Brake overhaul</h3>
+              <img
+                class="service-photo"
+                src="images/brakes.webp"
+                alt="Gloved hands adjusting a bike brake on the front wheel"
+                width="720"
+                height="480"
+                loading="lazy"
+              />
+              <p>
+                Brake cable and pad replacement, lever adjustment and bleed for
+                hydraulic systems.
+              </p>
+              <p class="price">From GH₵ 120</p>
+            </li>
+            <li class="service-card">
+              <h3>Gear system overhaul</h3>
+              <img
+                class="service-photo"
+                src="images/gears.webp"
+                alt="Close-up of the rear gears and chain on a bike"
+                width="620"
+                height="413"
+                loading="lazy"
+              />
+              <p>
+                Derailleur alignment, cable replacement, chain and cassette
+                inspection. Includes a test ride.
+              </p>
+              <p class="price">From GH₵ 150</p>
+            </li>
+            <li class="service-card">
+              <h3>Full bike rebuild</h3>
+              <img
+                class="service-photo"
+                src="images/rebuild.webp"
+                alt="Every part of a bike laid out separately on the floor"
+                width="720"
+                height="480"
+                loading="lazy"
+              />
+              <p>
+                Complete strip-down, clean, grease and rebuild. Best for bikes
+                that have not been serviced in years.
+              </p>
+              <p class="price">From GH₵ 350</p>
+            </li>
+            <li class="service-card">
+              <h3>Custom builds</h3>
+              <img
+                class="service-photo"
+                src="images/custom.webp"
+                alt="Bare bike frame clamped on a workbench with a spirit level"
+                width="480"
+                height="320"
+                loading="lazy"
+              />
+              <p>
+                Building a bike from scratch or upgrading parts. Get in touch to
+                discuss what you have in mind.
+              </p>
+              <p class="price">Ask for a quote</p>
+            </li>
           </ul>
-          <p class="note">If we do not have what you need, we can usually get it within a few days.</p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- 09 Find the workshop -->
-    <section id="find-us" class="section" aria-labelledby="find-title">
+      <!-- 06 How it works -->
+      <section
+        id="how-it-works"
+        class="section section-alt"
+        aria-labelledby="how-title"
+      >
+        <div class="container">
+          <h2 id="how-title">How it works</h2>
+          <ol class="steps">
+            <li>
+              Bring your bike in any time we are open. No appointment needed.
+            </li>
+            <li>
+              Kwame inspects it and calls or messages you with the problem and
+              the price.
+            </li>
+            <li>You approve. Nothing happens without your go-ahead.</li>
+            <li>We fix it, and let you know when it is ready to collect.</li>
+          </ol>
+          <p class="note">
+            Bigger repairs that need the bike overnight have a storage fee of
+            GH₵ 10 per day.
+          </p>
+        </div>
+      </section>
+
+      <!-- 07 Questions -->
+      <section id="questions" class="section" aria-labelledby="questions-title">
+        <div class="container split split--aside">
+          <div>
+            <h2 id="questions-title">Common questions</h2>
+            <p class="section-intro">
+              Quick answers to what riders ask Kwame most.
+            </p>
+          </div>
+
+          <div>
+            <details class="faq">
+              <summary>How long will my repair take?</summary>
+              <p>
+                Most basic repairs and tune-ups are done the same day, usually
+                within an hour or two. Bigger jobs like gear overhauls or full
+                rebuilds may need the bike overnight or for a couple of days. We
+                will give you an honest estimate when you drop it off.
+              </p>
+            </details>
+
+            <details class="faq">
+              <summary>Do I need to book in advance?</summary>
+              <p>
+                No. Walk-ins are welcome during opening hours. For a large or
+                urgent job, call ahead so we can make sure we have the right
+                parts in stock.
+              </p>
+            </details>
+
+            <details class="faq">
+              <summary>What types of bike do you work on?</summary>
+              <p>
+                All types: road, mountain, hybrid, BMX and kids' bikes, and most
+                major brands. If you have something unusual, get in touch first
+                and we will tell you if we can handle it.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08 About Kwame -->
+      <section
+        id="about"
+        class="section section-alt"
+        aria-labelledby="about-title"
+      >
+        <div class="container split">
+          <div>
+            <h2 id="about-title">About Kwame and Wheelhouse</h2>
+            <p>
+              Kwame opened Wheelhouse in 2019 after years of fixing bikes for
+              friends and neighbours out of his yard. The workshop now handles
+              everything from kids' bikes to high-end road and mountain bikes,
+              and every repair is done by Kwame or under his direct supervision.
+            </p>
+          </div>
+
+          <div>
+            <h3>Also in stock</h3>
+            <ul class="ticks">
+              <li>Lights</li>
+              <li>Helmets</li>
+              <li>Locks</li>
+              <li>Pumps</li>
+              <li>Basic spare parts</li>
+            </ul>
+            <p class="note">
+              If we do not have what you need, we can usually get it within a
+              few days.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 09 Find the workshop -->
+      <section id="find-us" class="section" aria-labelledby="find-title">
+        <div class="container">
+          <h2 id="find-title">Find the workshop</h2>
+          <address>
+            <p>
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                <path
+                  d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0"
+                />
+              </svg>
+              <span>Shop 4, Adum Commercial Area, Kumasi</span>
+            </p>
+            <p>
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M12 18.5l-3 -1.5l-6 3v-13l6 -3l6 3l6 -3v7.5" />
+                <path d="M9 4v13" />
+                <path d="M15 7v5.5" />
+                <path
+                  d="M21.121 20.121a3 3 0 1 0 -4.242 0c.418 .419 1.125 1.045 2.121 1.879c1.051 -.89 1.759 -1.516 2.121 -1.879"
+                />
+                <path d="M19 18v.01" />
+              </svg>
+              <span
+                ><a
+                  href="https://www.google.com/maps/search/?api=1&amp;query=Adum+Commercial+Area+Kumasi"
+                  >Get directions on Google Maps</a
+                ></span
+              >
+            </p>
+            <p>
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
+                />
+              </svg>
+              <span
+                >Phone:
+                <a href="tel:+233322000000">0322&nbsp;000&nbsp;000</a></span
+              >
+            </p>
+            <p>
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                <path
+                  d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
+                />
+              </svg>
+              <span
+                >WhatsApp:
+                <a href="https://wa.me/233244000001"
+                  >0244&nbsp;000&nbsp;001</a
+                ></span
+              >
+            </p>
+            <p>
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M8 9h8" />
+                <path d="M8 13h6" />
+                <path
+                  d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12"
+                />
+              </svg>
+              <span
+                >Text (SMS):
+                <a href="sms:+233244000001">0244&nbsp;000&nbsp;001</a></span
+              >
+            </p>
+            <p>
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"
+                />
+                <path d="M3 7l9 6l9 -6" />
+              </svg>
+              <span
+                >Email:
+                <a href="mailto:wheelhouse@email.com"
+                  >wheelhouse@email.com</a
+                ></span
+              >
+            </p>
+          </address>
+          <p class="hours">
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+              <path d="M12 7v5l3 3" />
+            </svg>
+            <span><strong>Open Monday to Saturday, 8am to 5:30pm</strong></span>
+          </p>
+        </div>
+      </section>
+
+      <!-- 10 Message Kwame (improvement: one-tap WhatsApp messages) -->
+      <section
+        id="request"
+        class="section section-alt"
+        aria-labelledby="request-title"
+      >
+        <div class="container split">
+          <div>
+            <h2 id="request-title">Message Kwame in one tap</h2>
+            <p>
+              Tap your problem and WhatsApp opens with the message already
+              written. Just press send, and add a photo if you can.
+            </p>
+            <ul class="quick-list">
+              <li>
+                <a
+                  class="quick-msg"
+                  href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20I%20have%20a%20flat%20tyre.%20Can%20I%20bring%20my%20bike%20in%20today%3F"
+                  >Flat tyre or puncture</a
+                >
+              </li>
+              <li>
+                <a
+                  class="quick-msg"
+                  href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20my%20chain%20is%20broken%20or%20slipping.%20Can%20I%20bring%20my%20bike%20in%20today%3F"
+                  >Broken or slipping chain</a
+                >
+              </li>
+              <li>
+                <a
+                  class="quick-msg"
+                  href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20my%20brakes%20are%20not%20working%20well.%20Can%20I%20bring%20my%20bike%20in%20today%3F"
+                  >Brakes not working well</a
+                >
+              </li>
+              <li>
+                <a
+                  class="quick-msg"
+                  href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20my%20gears%20are%20not%20changing%20properly.%20Can%20I%20bring%20my%20bike%20in%20today%3F"
+                  >Gears not changing</a
+                >
+              </li>
+              <li>
+                <a
+                  class="quick-msg"
+                  href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20my%20bike%20needs%20a%20full%20service.%20Can%20I%20bring%20my%20bike%20in%20today%3F"
+                  >Needs a full service</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <form
+              class="message-form"
+              action="https://wa.me/233244000001"
+              method="get"
+            >
+              <label for="message">Something else? Describe the problem</label>
+              <p class="note" id="message-hint">
+                For example: back wheel shakes when I ride. "Send on WhatsApp"
+                opens WhatsApp with your message ready to send.
+              </p>
+              <textarea
+                id="message"
+                name="text"
+                rows="4"
+                required
+                aria-describedby="message-hint"
+              ></textarea>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                  Send on WhatsApp
+                </button>
+                <!-- Shown by script.js, which turns the message into a text (SMS) -->
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  id="send-sms"
+                  data-number="+233244000001"
+                  hidden
+                >
+                  Send as a text (SMS)
+                </button>
+              </div>
+            </form>
+            <p class="note">
+              No WhatsApp or no mobile data?
+              <a href="sms:+233244000001">Text us on 0244&nbsp;000&nbsp;001</a>
+              from any phone, or call
+              <a href="tel:+233322000000">0322&nbsp;000&nbsp;000</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 11 Footer -->
+    <footer class="site-footer">
       <div class="container">
-        <h2 id="find-title">Find the workshop</h2>
-        <address>
-          <p><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0"/></svg>
-            <span>Shop 4, Adum Commercial Area, Kumasi</span></p>
-          <p><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 18.5l-3 -1.5l-6 3v-13l6 -3l6 3l6 -3v7.5"/><path d="M9 4v13"/><path d="M15 7v5.5"/><path d="M21.121 20.121a3 3 0 1 0 -4.242 0c.418 .419 1.125 1.045 2.121 1.879c1.051 -.89 1.759 -1.516 2.121 -1.879"/><path d="M19 18v.01"/></svg>
-            <span><a href="https://www.google.com/maps/search/?api=1&amp;query=Adum+Commercial+Area+Kumasi">Get directions on Google Maps</a></span></p>
-          <p><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>
-            <span>Phone: <a href="tel:+233322000000">0322&nbsp;000&nbsp;000</a></span></p>
-          <p><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"/><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"/></svg>
-            <span>WhatsApp: <a href="https://wa.me/233244000001">0244&nbsp;000&nbsp;001</a></span></p>
-          <p><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 9h8"/><path d="M8 13h6"/><path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12"/></svg>
-            <span>Text (SMS): <a href="sms:+233244000001">0244&nbsp;000&nbsp;001</a></span></p>
-          <p><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10"/><path d="M3 7l9 6l9 -6"/></svg>
-            <span>Email: <a href="mailto:wheelhouse@email.com">wheelhouse@email.com</a></span></p>
-        </address>
-        <p class="hours"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/><path d="M12 7v5l3 3"/></svg>
-          <span><strong>Open Monday to Saturday, 8am to 5:30pm</strong></span></p>
+        <p>
+          <strong>Wheelhouse Bike Repair</strong> · Shop 4, Adum Commercial
+          Area, Kumasi
+        </p>
+        <p>
+          <a href="tel:+233322000000">0322&nbsp;000&nbsp;000</a> · Monday to
+          Saturday, 8am to 5:30pm
+        </p>
+        <p>&copy; 2026 Wheelhouse Bike Repair</p>
       </div>
-    </section>
-
-    <!-- 10 Message Kwame (improvement: one-tap WhatsApp messages) -->
-    <section id="request" class="section section-alt" aria-labelledby="request-title">
-      <div class="container split">
-        <div>
-          <h2 id="request-title">Message Kwame in one tap</h2>
-          <p>Tap your problem and WhatsApp opens with the message already written. Just press send, and add a photo if you can.</p>
-          <ul class="quick-list">
-              <li><a class="quick-msg" href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20I%20have%20a%20flat%20tyre.%20Can%20I%20bring%20my%20bike%20in%20today%3F">Flat tyre or puncture</a></li>
-              <li><a class="quick-msg" href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20my%20chain%20is%20broken%20or%20slipping.%20Can%20I%20bring%20my%20bike%20in%20today%3F">Broken or slipping chain</a></li>
-              <li><a class="quick-msg" href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20my%20brakes%20are%20not%20working%20well.%20Can%20I%20bring%20my%20bike%20in%20today%3F">Brakes not working well</a></li>
-              <li><a class="quick-msg" href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20my%20gears%20are%20not%20changing%20properly.%20Can%20I%20bring%20my%20bike%20in%20today%3F">Gears not changing</a></li>
-              <li><a class="quick-msg" href="https://wa.me/233244000001?text=Hi%20Kwame%2C%20my%20bike%20needs%20a%20full%20service.%20Can%20I%20bring%20my%20bike%20in%20today%3F">Needs a full service</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <form class="message-form" action="https://wa.me/233244000001" method="get">
-            <label for="message">Something else? Describe the problem</label>
-            <p class="note" id="message-hint">For example: back wheel shakes when I ride. "Send on WhatsApp" opens WhatsApp with your message ready to send.</p>
-            <textarea id="message" name="text" rows="4" required
-                      aria-describedby="message-hint"></textarea>
-            <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Send on WhatsApp</button>
-              <!-- Shown by script.js, which turns the message into a text (SMS) -->
-              <button type="button" class="btn btn-secondary" id="send-sms" data-number="+233244000001" hidden>Send as a text (SMS)</button>
-            </div>
-          </form>
-          <p class="note">No WhatsApp or no mobile data? <a href="sms:+233244000001">Text us on 0244&nbsp;000&nbsp;001</a> from any phone, or call <a href="tel:+233322000000">0322&nbsp;000&nbsp;000</a>.</p>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- 11 Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <p><strong>Wheelhouse Bike Repair</strong> · Shop 4, Adum Commercial Area, Kumasi</p>
-      <p><a href="tel:+233322000000">0322&nbsp;000&nbsp;000</a> · Monday to Saturday, 8am to 5:30pm</p>
-      <p>&copy; 2026 Wheelhouse Bike Repair</p>
-    </div>
-  </footer>
-  <script src="js/script.js"></script>
-</body>
+    </footer>
+    <script src="js/script.js"></script>
+  </body>
 </html>

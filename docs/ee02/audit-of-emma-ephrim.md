@@ -12,6 +12,7 @@
   ![WAVE summary: 0 errors, AIM score 10](evidence/audit-of-emma/00-wave.png)
   ![Lighthouse desktop: Accessibility 100](evidence/audit-of-emma/00-lighthouse-desktop.png)
   ![Lighthouse mobile: Accessibility 100](evidence/audit-of-emma/00-lighthouse-mobile.png)
+
 - **Keyboard:** Chrome and Edge on my laptop, mouse unplugged. Journeys: home page to a sent booking request, the menu links, the FAQ, then Tab backwards (Shift+Tab) up the page.
 - **Focus visibility:** Chrome, plus Safari on macOS for the header.
 - **Zoom, text size and reflow:** Chrome at 200% and 400% zoom, Chrome DevTools at 320px wide, and Chrome's font size set to Very large.

@@ -2,12 +2,7 @@
   "name": "wheelhouse-rebuild",
   "version": "1.0.0",
   "description": "A rebuilt one-page website for Wheelhouse Bike Repair, Kwame's bike repair workshop in Adum, Kumasi. It's built mobile-first in plain HTML, CSS and a little JavaScript, and checked against WCAG 2.2 level AA.",
-  "main": "eslint.config.js",
-  "directories": {
-    "doc": "docs"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
@@ -21,9 +16,6 @@
     "type": "git",
     "url": "git+https://github.com/qcalvin3/wheelhouse-rebuild.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "type": "module",
   "bugs": {
     "url": "https://github.com/qcalvin3/wheelhouse-rebuild/issues"
@@ -47,5 +39,6 @@
     "*.{html,css,md,json,yml,yaml}": [
       "prettier --write"
     ]
-  }
+  },
+  "private": true
 }

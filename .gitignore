@@ -1,2 +1,11 @@
-﻿.DS_Store
+﻿# Installed dependencies (regenerate via npm ci / npm install)
+node_modules/
+
+# Production build output (regenerate via npm run build)
+dist/
+
+# Logs and OS/editor clutter
+*.log
+npm-debug.log*
+.DS_Store
 Thumbs.db

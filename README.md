@@ -10,10 +10,10 @@ A rebuilt one-page website for Wheelhouse Bike Repair, Kwame's bike repair works
 
 ## Lab write-ups
 
-| Lab | What it covers | Documents |
-|---|---|---|
-| **EE01** | Diagnosing the original site and rebuilding it | [Write-up](docs/ee01/write-up.md) · [Diagnosis](docs/ee01/diagnosis.md) · [Audit](docs/ee01/audit.md) |
-| **EE02** | Accessibility: auditing my pair's site, then fixing mine from their audit | [Write-up](docs/ee02/write-up.md) · [My audit of Emmanuel's site](docs/ee02/audit-of-emma-ephrim.md) |
+| Lab      | What it covers                                                            | Documents                                                                                             |
+| -------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| **EE01** | Diagnosing the original site and rebuilding it                            | [Write-up](docs/ee01/write-up.md) · [Diagnosis](docs/ee01/diagnosis.md) · [Audit](docs/ee01/audit.md) |
+| **EE02** | Accessibility: auditing my pair's site, then fixing mine from their audit | [Write-up](docs/ee02/write-up.md) · [My audit of Emmanuel's site](docs/ee02/audit-of-emma-ephrim.md)  |
 
 ## What's in the repo
 

@@ -1,1 +1,1 @@
-printf '* text=auto eol=lf\n' > .gitattributes
+* text=auto eol=lf\n

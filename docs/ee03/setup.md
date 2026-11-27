@@ -53,10 +53,11 @@ wheelhouse-rebuild/
 ├── images/                        # Optimised shop and repair imagery
 ├── js/
 │   └── script.js                  # Mobile navigation and SMS/WhatsApp booking interactions
+├── .gitattributes                 # Enforces consistent LF line endings across Windows and Linux
 ├── .gitignore                     # Keeps generated dependencies and build artefacts out of Git
 ├── .prettierignore                # Stops Prettier reformatting dist/, node_modules/, docs/ee01, docs/ee02, and lockfiles
 ├── .prettierrc.json               # Shared formatting rules across editors and OSes
-├── eslint.config.js               # ESLint v9 flat config for JS correctness checks
+├── eslint.config.js               # ESLint flat config
 ├── index.html                     # Entry HTML loading js/script.js with type="module"
 ├── package.json                   # Project scripts, devDependencies, and lint-staged config
 ├── package-lock.json              # Pins exact dependency versions across machines and CI
@@ -90,13 +91,13 @@ On every change we follow the seven-step loop: switch to `develop` and pull, cre
 We follow the **Golden Rule of Rebasing**:
 
 - While commits are strictly local and unshared, rebasing keeps history linear.
-- Once a branch is pushed and opened as a pull request that our pair may have pulled, we **never** `git rebase` or `git push --force`. When `feature/project-setup-calvin` and `feature/project-setup-emma` collided on shared setup files (`package.json`, `package-lock.json`, `.gitignore`, and `docs/ee03/setup.md`), we resolved the conflict using `git merge`, reconciled our tooling configurations and combined both partners' workflow improvements so neither person's work was discarded, regenerated `package-lock.json` cleanly via `npm install`, and verified all checks passed.
+- Once a branch is pushed and opened as a pull request that our pair may have pulled, we **never** `git rebase` or `git push --force`. Whenever parallel branches collide on shared setup files (`package.json`, `package-lock.json`, `.gitignore`, and `docs/ee03/setup.md`), we resolve the conflict using `git merge`, reconcile our tooling configurations and workflow improvements so neither partner's work is discarded, regenerate `package-lock.json` cleanly via `npm install`, and verify all checks pass.
 
 ### Commits, pull requests, and code reviews
 
 - **Conventional Commits (`<type>(<scope>): <subject>`):** Every commit is small, atomic, written in the imperative mood (`chore(lint): add eslint flat config with prettier integration`), and machine-readable. Without this convention, scanning fifty `"updates"` or `"fixed stuff"` commits tells a teammate nothing when debugging a regression.
 - **Pull requests:** Every PR description answers four questions (_what changed_, _why it is needed_, _how it was tested_, and _whether anything breaks_) because a diff shows _how_ code changed, never how the author tested it.
-- **Reviews (`blocking` vs. `non-blocking`):** We pull and run our pair's branch locally before approving, and label every comment using Conventional Comments (`issue`, `suggestion`, `nitpick`, `question`, `praise`) with an explicit `(blocking)` or `(non-blocking)` call based on real-world consequence rather than personal preference.
+- **Reviews (`blocking` vs. `optional`):** We pull and run our pair's branch locally before approving, and label every comment using Conventional Comments (`issue`, `suggestion`, `nitpick`, `question`, `praise`) with an explicit `(blocking)` or `(optional)` call based on real-world consequence rather than personal preference.
 
 ### Semantic Versioning (`MAJOR.MINOR.PATCH`) and the lockfile
 
@@ -121,6 +122,11 @@ Because `npm` writes caret ranges (`^`) in `package.json` by default (allowing a
 
 - **What it does:** Provides a fast local HTTP dev server (`npm run dev`), bundles and minifies HTML, CSS, ES module JS, and images into `dist/` (`npm run build`), serves the production bundle locally (`npm run preview`), and sets `base: './'` in `vite.config.js` so built asset links remain relative on subpath hosts like GitHub Pages. Loading `js/script.js` with `type="module"` tells Vite to include it in the module graph.
 - **What goes wrong without it:** Without `type="module"`, Vite skips bundling `script.js` and the mobile menu and SMS button silently stop working in production. Without `base: './'`, root-relative `/assets/...` paths break when deployed under `/<repo-name>/` on GitHub Pages.
+
+### Line endings (`.gitattributes`)
+
+- **What it does:** Enforces consistent `LF` line endings across all text files (`* text=auto eol=lf`) in both the Git index and local working trees, regardless of whether a developer works on Windows, WSL, macOS, or Linux, while leaving binary image files untouched.
+- **What goes wrong without it:** Windows editors and Git setups often write `CRLF` (`\r\n`) while Linux and GitHub Actions (`ubuntu-latest`) expect `LF` (`\n`). Without `.gitattributes`, cross-platform edits create noisy whole-file diffs, cause `prettier --check` to fail with carriage-return errors, and can break `.husky/pre-commit` shell scripts with hidden `\r` characters.
 
 ### Prettier (`.prettierrc.json` and `.prettierignore`)
 

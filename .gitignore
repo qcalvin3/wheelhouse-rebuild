@@ -1,4 +1,4 @@
-﻿# Installed dependencies (regenerate via npm ci / npm install)
+# Installed dependencies (regenerate via npm ci / npm install)
 node_modules/
 
 # Production build output (regenerate via npm run build)

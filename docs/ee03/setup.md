@@ -130,12 +130,12 @@ Because `npm` writes caret ranges (`^`) in `package.json` by default (allowing a
 
 ### Prettier (`.prettierrc.json` and `.prettierignore`)
 
-- **What it does:** Enforces one consistent visual style (`"semi": true`, `"singleQuote": false`, `"tabWidth": 2`, `"trailingComma": "es5"`) across HTML, CSS, JS, Markdown, JSON, and YAML while ignoring `dist/`, `node_modules/`, `docs/ee01`, `docs/ee02`, and `package-lock.json`.
+- **What it does:** Enforces one consistent visual style (`"semi": true`, `"singleQuote": false`, `"tabWidth": 2`, `"trailingComma": "es5"`, `"endOfLine": "lf"`) across HTML, CSS, JS, Markdown, JSON, and YAML while ignoring `dist/`, `node_modules/`, `docs/ee01`, `docs/ee02`, and `package-lock.json`.
 - **What goes wrong without it:** Different VS Code settings swap single and double quotes or re-indent whole files on save, polluting pull request diffs with hundreds of whitespace changes, creating avoidable merge conflicts, and wasting review time on punctuation instead of behaviour. `"trailingComma": "es5"` also keeps multi-line object/array additions to a one-line diff instead of two.
 
 ### ESLint (`eslint.config.js` and `eslint-config-prettier`)
 
-- **What it does:** Checks JavaScript for probable bugs using ESLint v9's flat config: globally ignores `dist/` and `node_modules/`, starts from `@eslint/js` recommended rules, scopes `globals.browser` (`window`, `document`) to site scripts and `globals.node` to `*.config.js` files, enforces strict equality (`eqeqeq`), `const`/`let` (`no-var`, `prefer-const`), and unused-variable errors (`no-unused-vars`) while flagging `console.log` as `"warn"`, and places `eslint-config-prettier` **last** in the config array.
+- **What it does:** Checks JavaScript for probable bugs using ESLint's flat config: globally ignores `dist/` and `node_modules/`, starts from `@eslint/js` recommended rules, scopes `globals.browser` (`window`, `document`) to site scripts and `globals.node` to `*.config.js` files, enforces strict equality (`eqeqeq`), `const`/`let` (`no-var`, `prefer-const`), and unused-variable errors (`no-unused-vars`) while flagging `console.log` as `"warn"`, and places `eslint-config-prettier` **last** in the config array.
 - **What goes wrong without it:** Prettier will happily format broken code, such as a mistyped variable name, dead code, or a loose `==` coercion bug, without warning. Conversely, without `globals.browser`, ESLint flags every `document.querySelector` call as undefined; without global `ignores: ["dist/**"]`, ESLint fails trying to lint minified build output; and without `eslint-config-prettier` at the end, ESLint and Prettier fight over stylistic rules.
 
 ### Husky and `lint-staged` (`.husky/pre-commit`)
@@ -156,3 +156,15 @@ Because `npm` writes caret ranges (`^`) in `package.json` by default (allowing a
 
 - **Problem it solves:** Even when teammates agree on PR standards, opening a pull request at the end of a long coding session into a blank text box makes it easy to forget testing notes or breaking-change warnings, leaving the reviewer to guess how to verify the branch.
 - **What it does & who it protects:** Pre-populates every new GitHub pull request with headings for _What this does_, _Why this is needed_, _How it was tested_, _Breaking changes_, and a pre-submission self-review checklist. It protects the **reviewer** from incomplete context and protects **future maintainers in EE04 to EE06** by leaving consistent rationale on every merged PR.
+
+### 2. Branch Protection on `main` and `develop` (Implemented by Calvin)
+
+- **Problem it solves:** Our conventions say every change goes through a pull request with a review and passing checks, but nothing enforced that. One `git push origin develop` from the wrong branch, or one click on **Merge** while CI is red or still running, would put unreviewed or broken code on `develop` or on Kwame's live site (`main`), and the other developer would only find out when something broke. That is exactly what Kwame asked to avoid: "nobody knew the other person had already changed the same thing."
+- **What it does:** A GitHub ruleset ("Protect main and develop") with an empty bypass list, so it applies to the repository owner too:
+  - changes must come through a pull request with 1 approval;
+  - approvals are dismissed when new commits are pushed, so an approval always covers the code the reviewer actually saw;
+  - the `quality` CI job must pass, and the branch must be up to date with its target, before merging;
+  - force pushes and deleting the branch are blocked.
+- **Who it protects:** Both developers, from accidental pushes and from merging each other's unchecked changes. Kwame and his customers, because nothing reaches the live site without a second pair of eyes and a passing build.
+- **Evidence:** A test push of an empty commit straight to `develop` was rejected with `GH013: Repository rule violations found for refs/heads/develop` ("Changes must be made through a pull request", "Required status check "quality" is expected"); the test commit only existed locally and was discarded. PR #3 showed "All checks have passed" but "Merging is blocked" until a review was given. The rules also shaped this lab: "up to date" made #3 merge `develop` in before it could merge, which is where our conflict was resolved, and "dismiss stale approvals" meant the resolved version had to be reviewed again.
+- **Why keep it permanently:** It costs one approval per change and turns the team's conventions from a promise into something GitHub enforces. As more work lands on the site in EE04 to EE06, the chance of an accidental push only grows, while the protection costs nothing extra. Because it is a repository setting, not a file, it never shows up in a diff, so it is written down here for the next developer.

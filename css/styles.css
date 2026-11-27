@@ -30,6 +30,7 @@
   --font-size-h1: clamp(1.75rem, 1.2rem + 2.5vw, 2.5rem); /* 28px to 40px */
   --line-height-body: 1.5;
   --line-height-heading: 1.2;
+  --font-size-marker: 1.5rem; /* 24px: FAQ + and − toggle */
 
   /* Spacing */
   --space-1: 0.25rem; /* 4px */
@@ -43,6 +44,8 @@
   --step-marker: 2rem; /* numbered circles in How it works */
   --width-hero-text: 36rem; /* hero text stays on the dark left side on laptops */
   --radius: 6px;
+  --step-marker-offset: -0.125rem; /* -2px optical alignment with first line of step text */
+  --icon-optical-offset: 0.1em; /* aligns 1.25em icon with 1.5 line-height text */
 }
 
 /* ---------- 2. Base ---------- */
@@ -219,7 +222,6 @@ a:hover {
    Screen readers already announce "expanded" or "collapsed" for <summary>;
    the "/ ''" part stops them reading the arrow out as well */
 .site-nav summary::after {
-  content: "\25BE";
   content: "\25BE" / "";
   margin-left: var(--space-1);
 }
@@ -436,7 +438,7 @@ a:hover {
   content: counter(step);
   position: absolute;
   left: 0;
-  top: -2px;
+  top: var(--step-marker-offset);
   width: var(--step-marker);
   height: var(--step-marker);
   display: grid;
@@ -475,7 +477,7 @@ a:hover {
 
 .faq summary::after {
   content: "+";
-  font-size: 1.5rem;
+  font-size: var(--font-size-marker);
   line-height: 1;
   color: var(--color-primary);
 }
@@ -499,7 +501,9 @@ address p {
   flex: none;
   width: 1.25em; /* scales with the text size */
   height: 1.25em;
-  margin-top: 0.1em; /* lines the icon up with the first line of text */
+  margin-top: var(
+    --icon-optical-offset
+  ); /* lines the icon up with the first line of text */
   fill: none;
   stroke: currentColor;
   stroke-width: 2;
@@ -612,7 +616,7 @@ address p,
   }
 }
 
-/* Tablets and up: about 768px */
+/* Tablets and up: about 768px — keep in sync with DESKTOP_BREAKPOINT (48rem) in js/script.js */
 @media (min-width: 48rem) {
   .hero,
   .trust,

@@ -13,6 +13,8 @@ A rebuilt one-page website for Wheelhouse Bike Repair, Kwame's bike repair works
 You need [Node.js](https://nodejs.org/) 22 or newer.
 
 ```
+git clone https://github.com/qcalvin3/wheelhouse-rebuild.git
+cd wheelhouse-rebuild
 npm install    # installs the tools and switches on the pre-commit hook
 npm run dev    # starts a local server; open the address it prints
 ```
@@ -35,6 +37,7 @@ Every commit runs ESLint and Prettier on the files you staged. Every pull reques
 | -------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | **EE01** | Diagnosing the original site and rebuilding it                            | [Write-up](docs/ee01/write-up.md) · [Diagnosis](docs/ee01/diagnosis.md) · [Audit](docs/ee01/audit.md) |
 | **EE02** | Accessibility: auditing my pair's site, then fixing mine from their audit | [Write-up](docs/ee02/write-up.md) · [My audit of Emmanuel's site](docs/ee02/audit-of-emma-ephrim.md)  |
+| **EE03** | Working together: shared repo, tooling, CI and branch protection          | [Setup explanation](docs/ee03/setup.md)                                                               |
 
 ## What's in the repo
 
@@ -45,6 +48,7 @@ js/script.js        menu behaviour and the SMS button (the page works without it
 images/             compressed WebP photos
 docs/ee01/          EE01 write-up, diagnosis, audit and screenshots
 docs/ee02/          EE02 write-up, audit of Emmanuel's site and screenshots
+docs/ee03/          EE03 setup explanation: tooling, conventions and workflow improvements
 package.json        scripts, tool versions and lint-staged (what the pre-commit hook checks)
 vite.config.js      Vite settings (base: './' keeps built links relative)
 eslint.config.js    ESLint rules
@@ -52,6 +56,7 @@ eslint.config.js    ESLint rules
 .gitattributes      keeps LF line endings on every machine
 .husky/pre-commit   runs lint-staged before every commit
 .github/workflows/  CI: format, lint and build on every push and pull request
+.github/pull_request_template.md   the checklist every pull request starts from
 ```
 
 ## Notes

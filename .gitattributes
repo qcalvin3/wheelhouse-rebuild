@@ -1,0 +1,1 @@
+printf '* text=auto eol=lf\n' > .gitattributes

@@ -45,12 +45,11 @@ js/script.js        menu behaviour and the SMS button (the page works without it
 images/             compressed WebP photos
 docs/ee01/          EE01 write-up, diagnosis, audit and screenshots
 docs/ee02/          EE02 write-up, audit of Emmanuel's site and screenshots
-package.json        scripts and tool versions (package-lock.json pins exact versions)
+package.json        scripts, tool versions and lint-staged (what the pre-commit hook checks)
 vite.config.js      Vite settings (base: './' keeps built links relative)
 eslint.config.js    ESLint rules
 .prettierrc.json    Prettier style rules (.prettierignore lists what it skips)
 .gitattributes      keeps LF line endings on every machine
-.lintstagedrc.json  what the pre-commit hook checks
 .husky/pre-commit   runs lint-staged before every commit
 .github/workflows/  CI: format, lint and build on every push and pull request
 ```

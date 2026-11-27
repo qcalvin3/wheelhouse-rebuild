@@ -21,7 +21,7 @@
   --color-border: #e0dcd5;
 
   /* Type */
-  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-size-small: 0.875rem; /* 14px */
   --font-size-base: 1rem; /* 16px */
   --font-size-lead: 1.1rem; /* 18px: hero intro and prices */
@@ -219,8 +219,8 @@ a:hover {
    Screen readers already announce "expanded" or "collapsed" for <summary>;
    the "/ ''" part stops them reading the arrow out as well */
 .site-nav summary::after {
-  content: '\25BE';
-  content: '\25BE' / '';
+  content: "\25BE";
+  content: "\25BE" / "";
   margin-left: var(--space-1);
 }
 
@@ -272,7 +272,7 @@ a:hover {
   background-color: var(--color-text); /* shown while the photo loads */
   background-image:
     linear-gradient(var(--hero-shade), var(--hero-shade)),
-    url('../images/hero-small.webp'); /* 23 KB version for phones */
+    url("../images/hero-small.webp"); /* 23 KB version for phones */
   background-size: cover;
   background-position: center;
 }
@@ -338,7 +338,7 @@ a:hover {
 }
 
 .ticks li::before {
-  content: '✓';
+  content: "✓";
   position: absolute;
   left: 0;
   top: 0;
@@ -474,14 +474,14 @@ a:hover {
 }
 
 .faq summary::after {
-  content: '+';
+  content: "+";
   font-size: 1.5rem;
   line-height: 1;
   color: var(--color-primary);
 }
 
 .faq[open] summary::after {
-  content: '−';
+  content: "−";
 }
 
 /* Find the workshop (block 9) */
@@ -712,7 +712,7 @@ address p,
     padding-block: calc(var(--space-6) * 2);
     background-image:
       linear-gradient(to right, var(--hero-shade) 60%, transparent 90%),
-      url('../images/hero-wide.webp');
+      url("../images/hero-wide.webp");
   }
 
   .hero .container > * {

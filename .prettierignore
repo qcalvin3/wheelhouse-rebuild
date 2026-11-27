@@ -1,3 +1,5 @@
+node_modules/
+dist/
 package-lock.json
 docs/ee01/
 docs/ee02/

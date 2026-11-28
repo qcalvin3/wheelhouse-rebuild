@@ -2,21 +2,29 @@
 
 // === Menu: links in the header on wider screens; on phones a pop-up that
 //     closes after a link is chosen, on Escape, or when focus leaves ===
+// Shared tablet/desktop breakpoint: keep 48rem in sync with
+// @media (min-width: 48rem) in css/styles.css
+const DESKTOP_BREAKPOINT = "(min-width: 48rem)";
 const menu = document.querySelector(".site-nav details");
 
 if (menu) {
   const toggle = menu.querySelector("summary");
 
-  // On tablets and up the links sit in the header, so keep the menu open there.
-  // This width must match the @media (min-width: 48rem) rule in styles.css
-  const wideScreen = window.matchMedia("(min-width: 48rem)");
+  // On tablets and up the links sit in the header, so keep the menu open there
+  const wideScreen = window.matchMedia(DESKTOP_BREAKPOINT);
   const syncMenuToScreen = () => {
     menu.open = wideScreen.matches;
   };
   syncMenuToScreen();
-  // Kept for the whole visit: on a one-page site there's no point where it
-  // needs removing, and it's what switches the menu if the screen is resized
   wideScreen.addEventListener("change", syncMenuToScreen);
+
+  // Remove the media-query listener when the page is permanently unloaded
+  // (keeping it alive if the browser caches the page in bfcache)
+  window.addEventListener("pagehide", (event) => {
+    if (!event.persisted) {
+      wideScreen.removeEventListener("change", syncMenuToScreen);
+    }
+  });
 
   // Close after a link is chosen, so the menu doesn't cover the section
   menu.addEventListener("click", (event) => {

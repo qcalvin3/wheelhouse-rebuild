@@ -8,7 +8,7 @@ export default [
   },
   js.configs.recommended,
   {
-    files: ["js/**/*.js", "src/**/*.js"],
+    files: ["js/**/*.js"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
@@ -19,7 +19,7 @@ export default [
       "no-var": "error",
       "prefer-const": "error",
       "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
-      "no-console": "warn",
+      "no-console": "error",
     },
   },
   {

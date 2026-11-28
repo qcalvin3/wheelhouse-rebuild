@@ -2,9 +2,9 @@
 
 A rebuilt one-page website for Wheelhouse Bike Repair, Kwame's bike repair workshop in Adum, Kumasi. It's built mobile-first in plain HTML, CSS and a little JavaScript, and checked against WCAG 2.2 level AA.
 
-**Live site:** https://qcalvin3.github.io/wheelhouse-rebuild/
-
 > **Not ready for real customers yet.** The photos are placeholders: their licences aren't confirmed, and the hero is AI-generated. The phone numbers and email are the brief's placeholders too. All of these need replacing with Kwame's own before the site is used for his business.
+
+**Live site:** https://qcalvin3.github.io/wheelhouse-rebuild/
 
 **How to run it:** open the live site, or run it locally (below).
 

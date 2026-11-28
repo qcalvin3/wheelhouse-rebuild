@@ -107,7 +107,7 @@ Dependencies in `package.json` follow Semantic Versioning (`MAJOR.MINOR.PATCH`):
 - **`MINOR`:** Backwards-compatible new features.
 - **`PATCH`:** Backwards-compatible bug fixes.
 
-Because `npm` writes caret ranges (`^`) in `package.json` by default (allowing automatic `MINOR` and `PATCH` updates), two developers running `npm install` two weeks apart could end up with different sub-dependency versions without a lockfile. Committing **`package-lock.json`**, installing Prettier with `--save-exact`, and running **`npm ci`** in GitHub Actions guarantees both laptops and CI execute the exact same dependency versions.
+Because `npm` writes caret ranges (`^`) in `package.json` by default (allowing automatic `MINOR` and `PATCH` updates), two developers running `npm install` two weeks apart could end up with different sub-dependency versions without a lockfile. Committing **`package-lock.json`**, pinning exact `devDependencies` versions in `package.json`, and running **`npm ci`** in GitHub Actions guarantees both laptops and CI execute the exact same dependency versions.
 
 ---
 
@@ -115,7 +115,7 @@ Because `npm` writes caret ranges (`^`) in `package.json` by default (allowing a
 
 ### `package.json` and `npm` scripts
 
-- **What it does:** Declares all tooling under `devDependencies` (`"type": "module"` enabled for ES module configs) and exposes one shared set of commands: `npm run dev`, `npm run build`, `npm run preview`, `npm run lint`, `npm run lint:fix`, `npm run format`, and `npm run format:check`.
+- **What it does:** Declares all tooling under exact-pinned `devDependencies` (`"type": "module"` for ES module configs and `"engines": { "node": ">=22" }` for Node runtime checks) and exposes one shared set of commands: `npm run dev`, `npm run build`, `npm run preview`, `npm run lint`, `npm run lint:fix`, `npm run format`, and `npm run format:check`.
 - **What goes wrong without it:** Every subsequent tool (Vite, ESLint, Prettier, Husky, and GitHub Actions) hangs off `package.json`. Without shared scripts, a new developer needs verbal instructions to run checks, and local runs drift from CI runs.
 
 ### Vite (`vite.config.js` and `<script type="module">` in `index.html`)
@@ -135,7 +135,7 @@ Because `npm` writes caret ranges (`^`) in `package.json` by default (allowing a
 
 ### ESLint (`eslint.config.js` and `eslint-config-prettier`)
 
-- **What it does:** Checks JavaScript for probable bugs using ESLint's flat config: globally ignores `dist/` and `node_modules/`, starts from `@eslint/js` recommended rules, scopes `globals.browser` (`window`, `document`) to site scripts and `globals.node` to `*.config.js` files, enforces strict equality (`eqeqeq`), `const`/`let` (`no-var`, `prefer-const`), and unused-variable errors (`no-unused-vars`) while flagging `console.log` as `"warn"`, and places `eslint-config-prettier` **last** in the config array.
+- **What it does:** Checks JavaScript for probable bugs using ESLint's flat config: globally ignores `dist/` and `node_modules/`, starts from `@eslint/js` recommended rules, scopes `globals.browser` (`window`, `document`) to `js/**/*.js` and `globals.node` to `*.config.js` files, enforces strict equality (`eqeqeq`), `const`/`let` (`no-var`, `prefer-const`), unused-variable errors (`no-unused-vars`), and `"no-console": "error"` to block stray `console.log` calls, and places `eslint-config-prettier` **last** in the config array.
 - **What goes wrong without it:** Prettier will happily format broken code, such as a mistyped variable name, dead code, or a loose `==` coercion bug, without warning. Conversely, without `globals.browser`, ESLint flags every `document.querySelector` call as undefined; without global `ignores: ["dist/**"]`, ESLint fails trying to lint minified build output; and without `eslint-config-prettier` at the end, ESLint and Prettier fight over stylistic rules.
 
 ### Husky and `lint-staged` (`.husky/pre-commit`)

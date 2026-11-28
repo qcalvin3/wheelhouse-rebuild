@@ -2,7 +2,7 @@
 
 [Back to README](../../README.md)
 
-> **Note:** this describes the page at the end of EE01. The page has changed a lot since, in EE02 (photos, a desktop layout, menu links in the header, an SMS option and more). Some details below no longer match the current page, and the two most important (the placeholder image and the unused script) have a note in italics. See the [EE02 write-up](../ee02/write-up.md) for the current page.
+> **Note:** this describes the page at the end of EE01. The page has changed a lot since, in EE02 (photos, a desktop layout, menu links in the header, an SMS option and more). Some details below no longer match the current page. See the [EE02 write-up](../ee02/write-up.md) for the current page.
 
 **How I checked:** the W3C Markup Validation Service and a stricter HTML checker (`html-validate`), Lighthouse on mobile and desktop, an automated accessibility check (axe-core) at 360px and 1280px, the W3C Easy Checks by hand (page title, headings, image text, contrast, keyboard focus, 200% zoom, form labels), every colour pair measured for contrast, and a search of the CSS for values that bypass the visual system.
 
@@ -41,7 +41,7 @@
 | Exact map pin or landmark | The site only knows "Shop 4, Adum Commercial Area", so the link searches that area | Ask Kwame for a nearby landmark or his exact Google Maps location |
 | Menu stays a "Menu" button on desktop | `<details>` works without JavaScript and suits phones, where most customers are. Showing the links in a row on desktop is low value for this brief | Show the links inline on wide screens in a later JavaScript or CSS pass |
 | A live "Open now / Closed" status | It would answer "can I bring it in now?" instantly, but it needs JavaScript, which this course covers in the next module | Add it in the Applied JavaScript module |
-| `js/script.js` is not used | This lab needs no JavaScript. The file is kept as the starter's placeholder for the Applied JavaScript module, so it is not linked from the page | Use it in that module *(EE02: now linked; it runs the menu and the SMS button)* |
+| `js/script.js` started empty in EE01 | The EE01 rebuild needed no JavaScript, so the starter script was left unlinked in Lab 1 | Linked in EE02 and bundled via Vite in EE03 to run the header menu sync and SMS button |
 | Some fixed pixel values remain | Borders (1px to 3px), the focus ring, icon sizes and maximum widths. These are fine details and layout limits, not text or spacing, so they sit outside the spacing scale on purpose | None needed |
 
 **Overall:** the five root causes from the diagnosis are fixed at the source: the page is built for phones first, ordered by what customers need, written in semantic HTML, finished (every link and button works), and styled from one visual system. What remains needs real information from Kwame rather than more code.

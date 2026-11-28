@@ -1,12 +1,12 @@
 # EE01 write-up: Wheelhouse Bike Repair page rebuild
 
-> **Note:** this describes the page at the end of EE01. The page has changed a lot since, in EE02 (photos, a desktop layout, menu links in the header, an SMS option and more). Some details below no longer match the current page, and the two most important (the placeholder image and the unused script) have a note in italics. See the [EE02 write-up](../ee02/write-up.md) for the current page.
+> **Note:** this describes the page at the end of EE01. The page has changed a lot since, in EE02 (photos, a desktop layout, menu links in the header, an SMS option and more). Some details below no longer match the current page. See the [EE02 write-up](../ee02/write-up.md) for the current page.
 
 **Live page:** https://qcalvin3.github.io/wheelhouse-rebuild/
 **Original site (before):** [commit e0c6f94](https://github.com/qcalvin3/wheelhouse-rebuild/tree/e0c6f94)
 **Full write-ups:** [diagnosis](diagnosis.md) · [audit](audit.md) · [screenshots](evidence/)
 
-**How to run it:** open the live page, or download the repo and open `index.html` in any browser. There is nothing to install or build.
+**How to run it:** open the live page, or clone the repo and run `npm install` then `npm run dev` (see the root [README](../../README.md); `js/script.js` now loads as an ES module, which browsers block over `file://`).
 
 ## 1. Understanding the brief
 
@@ -97,4 +97,4 @@ Everything comes from CSS variables at the top of `css/styles.css`.
 
 **What I fixed after auditing:** phone numbers could split across two lines (fixed with non-breaking spaces), two sizes were outside the system (now variables), and there was no tab icon (added).
 
-**What I left, and why:** a real photo of Kwame, his real phone numbers, and an exact map pin all need information from him. A live "Open now" sign needs JavaScript, which comes in the next module. `js/script.js` is the starter's placeholder for that module, so this page does not use it. *(Since EE02 it runs the menu and the SMS button.)*
+**What I left, and why:** a real photo of Kwame, his real phone numbers, and an exact map pin all need information from him. A live "Open now" sign needs JavaScript, which comes in the next module. `js/script.js` started empty in EE01 because the initial layout needed no JavaScript; it now runs the responsive header menu and the SMS button as an ES module.
